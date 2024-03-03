@@ -1,0 +1,32 @@
+root: .
+
+ignore:
+  - node_modules/*
+  - .config/*
+  - .git/*
+  - src/*
+
+NestedSnippet:
+  enabled: false
+
+UnusedSnippet:
+  enabled: false
+
+ImgWidthAndHeight:
+  enabled: false
+
+DeprecateLazysizes:
+  enabled: false
+
+AssetPreload:
+  enabled: false
+
+RemoteAsset:
+  enabled: false
+
+ImgLazyLoading:
+  enabled: false
+
+MatchingTranslations:
+  enabled: false
+

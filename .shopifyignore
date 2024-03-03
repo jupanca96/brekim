@@ -1,0 +1,17 @@
+.git/*
+.gitignore
+.config/*
+.github/*
+.husky/*
+src/*
+node_modules/*
+package-lock.json
+package.json
+README.md
+*.md
+.env.*
+.babelrc
+.editorconfig
+jsconfig.json
+tsconfig.json
+lintstagedrc

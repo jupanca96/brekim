@@ -1,0 +1,16 @@
+{
+  "env": {
+    "browser": true,
+    "es2023": true
+  },
+  "extends": ["eslint:recommended", "./js-extra-rules/index.js"],
+  "parserOptions": {
+    "ecmaVersion": 13,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "generators": false,
+      "objectLiteralDuplicateProperties": false
+    }
+  }
+  
+}

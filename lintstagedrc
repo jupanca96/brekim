@@ -1,0 +1,14 @@
+{
+    "*.js": [
+        "eslint -c .config/code/.eslintrc.json",
+        "git add"
+    ],
+    "*.scss": [
+        "stylelint --config .config/code/.stylelintrc.js ",
+        "git add"
+    ],
+    "*.ts": [
+        "eslint -c .config/code/.eslintrc.json",
+        "git add"
+    ]
+  }

@@ -1,0 +1,71 @@
+{
+    "name": "endrock-webpack",
+    "version": "1.1.0",
+    "description": "Integration of Webpack to manage the assets of a project",
+    "main": ".config/webpack/webpack.common.js",
+    "scripts": {
+        "build": "webpack --mode production --progress --config .config/webpack/webpack.prod.js",
+        "start": "webpack --watch --mode development --progress --config .config/webpack/webpack.dev.js",
+        "lint": "eslint ./src/*/*.js -c .config/code/.eslintrc.json && (eslint ./src/*/*.ts --env browser -c .config/code/.eslinttyperc.cjs) && (stylelint ./src/*/*.scss  --config .config/code/.stylelintrc.js)",
+        "lint:sass": "stylelint ./src/*/*.scss  --config .config/code/.stylelintrc.js",
+        "lint:js": "eslint ./src/*/*.js -c .config/code/.eslintrc.json",
+        "lint:ts": "eslint ./src/*/*.ts --env browser -c .config/code/.eslinttyperc.cjs",
+        "fix": "eslint ./src/*/*.js -c .config/code/.eslintrc.json --fix && (eslint ./src/*/*.ts --env browser -c .config/code/.eslinttyperc.cjs --fix) && (stylelint ./src/*/*.scss  --config .config/code/.stylelintrc.js --fix)",
+        "fix:sass": "stylelint ./src/*/*.scss  --config .config/code/.stylelintrc.js --fix",
+        "fix:js": "eslint ./src/*/*.js -c .config/code/.eslintrc.json --fix"
+    },
+    "author": "Alfredo Romero",
+    "license": "MIT",
+    "devDependencies": {
+        "@babel/core": "^7.22.20",
+        "@babel/preset-env": "^7.22.20",
+        "@babel/preset-typescript": "^7.23.0",
+        "@typescript-eslint/eslint-plugin": "^6.7.3",
+        "@typescript-eslint/parser": "^6.7.3",
+        "autoprefixer": "^10.4.16",
+        "babel-loader": "^9.1.3",
+        "cross-env": "^7.0.3",
+        "css-loader": "^6.8.1",
+        "css-minimizer-webpack-plugin": "^5.0.1",
+        "dotenv": "^16.3.1",
+        "eslint": "^8.50.0",
+        "husky": "^8.0.3",
+        "lint-staged": "^14.0.1",
+        "mini-css-extract-plugin": "^2.7.6",
+        "sass": "^1.66.1",
+        "sass-loader": "^13.3.2",
+        "style-loader": "^3.3.3",
+        "stylelint": "^15.10.3",
+        "stylelint-config-standard-scss": "^11.0.0",
+        "stylelint-scss": "^5.2.1",
+        "ts-loader": "^9.4.4",
+        "typescript": "^5.2.2",
+        "webpack": "^5.88.2",
+        "webpack-cli": "^5.1.4",
+        "webpack-fix-style-only-entries": "^0.6.1",
+        "webpack-merge": "^5.9.0",
+        "webpack-shell-plugin-next": "^2.3.1"
+    },
+    "overrides": {
+        "autoprefixer": "^10.4.16"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.js": [
+            "eslint -c .config/code/.eslintrc.json",
+            "git add"
+        ],
+        "*.scss": [
+            "stylelint --config .config/code/.stylelintrc.js ",
+            "git add"
+        ],
+        "*.ts": [
+            "eslint -c .config/code/.eslintrc.json",
+            "git add"
+        ]
+    }
+}

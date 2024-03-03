@@ -1,0 +1,50 @@
+/*!**************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/scss/index.scss ***!
+  \**************************************************************************************************************/
+:root {
+  --primary-box-color: #112055;
+  --primary-box-text: #fff;
+  --primary-box-lighter: #357b70;
+  --primary-box-darker: #357b70;
+  --secondary-box-color: #4f9d92;
+  --secondary-box-text: #000;
+  --padding: 10px;
+  --border-rad: 5px;
+  --shadow: 4px 3px 19px 0px rgb(0 0 0 / 0.3);
+}
+
+.box__wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+  padding: 20px;
+  font-family: sans-serif;
+}
+.box__wrapper div:hover {
+  box-shadow: none;
+}
+
+.box-secondary, .box-primary-darker, .box-primary-lighter, .box-primary {
+  padding: var(--padding);
+  border-radius: var(--border-rad);
+  box-shadow: var(--shadow);
+}
+
+.box-primary {
+  background-color: var(--primary-box-color);
+  color: var(--primary-box-text);
+}
+
+.box-primary-lighter {
+  background-color: color-adjust(#112055, 20%);
+}
+
+.box-primary-darker {
+  background-color: color-adjust(#112055, 10%);
+  color: var(--primary-box-text);
+}
+
+.box-secondary {
+  background-color: var(--secondary-box-color);
+  color: var(--secondary-text);
+}
