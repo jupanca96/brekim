@@ -1,3 +1,6 @@
+/*!**************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/scss/index.scss ***!
+  \**************************************************************************************************************/
 :root {
   --primary-box-color: #112055;
   --primary-box-text: #fff;
@@ -10,57 +13,42 @@
   --shadow: 4px 3px 19px 0px rgb(0 0 0 / 0.3);
 }
 
-$primary-box-colors: #112055;
-
-// shame, we can't use HTML variables as value inside SCSS e.g '$primary-box-color-darker: darken(var(--primary-box-color), 20%)' SCSS wont recognize the variable
-$primary-box-color-lighter: color-adjust($primary-box-colors, 20%);
-$primary-box-color-darker: color-adjust($primary-box-colors, 10%);
-
 .box__wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 20px;
   padding: 20px;
   font-family: sans-serif;
-
-  div:hover {
-    box-shadow: none;
-  }
+}
+.box__wrapper div:hover {
+  box-shadow: none;
 }
 
-%box-shape {
+.box-secondary, .box-primary-darker, .box-primary-lighter, .box-primary {
   padding: var(--padding);
   border-radius: var(--border-rad);
   box-shadow: var(--shadow);
 }
 
 .box-primary {
-  @extend %box-shape;
-
   background-color: var(--primary-box-color);
   color: var(--primary-box-text);
 }
 
 .box-primary-lighter {
-  @extend %box-shape;
-
-  background-color: $primary-box-color-lighter;
+  background-color: color-adjust(#112055, 20%);
 }
 
 .box-primary-darker {
-  @extend %box-shape;
-
-  background-color: $primary-box-color-darker;
+  background-color: color-adjust(#112055, 10%);
   color: var(--primary-box-text);
 }
 
 .box-secondary {
-  @extend %box-shape;
-
   background-color: var(--secondary-box-color);
   color: var(--secondary-text);
 }
 
-* { 
+* {
   background-color: red;
 }

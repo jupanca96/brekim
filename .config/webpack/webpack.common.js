@@ -11,9 +11,9 @@ const JS_DIR = path.resolve(__dirname, "../../src/js");
 const TS_DIR = path.resolve(__dirname, "../../src/ts");
 
 const entry = {
-  "endrock.styles": SASS_DIR + "/index.scss",
-  "endrock.scripts": JS_DIR + "/index.js",
-  "endrock.ts-scripts": TS_DIR + "/index.ts",
+  "juan.styles": SASS_DIR + "/index.scss",
+  "juan.scripts": JS_DIR + "/index.js",
+  "juan.ts-scripts": TS_DIR + "/index.ts",
 };
 
 const output = {
