@@ -1,1 +1,0 @@
-alert("Esto es una alerta de test")
