@@ -70,9 +70,9 @@
     "test_section_Q34WxP": {
       "type": "test-section",
       "settings": {
-        "header": "",
-        "user_name": "",
-        "user_bio": ""
+        "user_img": "shopify:\/\/shop_images\/rack-of-womens-clothing.jpg",
+        "user_name": "Joe Doe",
+        "user_bio": "<p>Esta es la descripción de Joe Doe sobre su negocio, vamos a ver como se ve. <\/p>"
       }
     }
   },
