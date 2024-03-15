@@ -251,7 +251,10 @@
       }
     {% endstyle %}
 
+    {{ 'juan.styles.css' | asset_url |  stylesheet_tag }}
     {{ 'base.css' | asset_url | stylesheet_tag }}
+    
+    {% comment %} <link rel="stylesheet" href="{{  'juan.styles.css' | asset_url}}"> {% endcomment %}
 
     {%- unless settings.type_body_font.system? -%}
       <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
@@ -280,7 +283,7 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
-    <link rel="stylesheet" href="{{  'juan.styles.css' | asset_url}}">
+    
     <script src="{{  'juan.scripts.js' | asset_url }}"></script>
   </head>
 

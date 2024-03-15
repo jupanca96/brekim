@@ -1,1 +1,1 @@
-{"version":3,"file":"juan.scripts.js","mappings":";;;;;AAAA","sources":["webpack://endrock-webpack/./src/js/index.js"],"sourcesContent":["alert(\"Esto es una alerta de test\");"],"names":[],"sourceRoot":""}
+{"version":3,"file":"juan.scripts.js","mappings":";;;;;AAAA","sources":["webpack://endrock-webpack/./src/js/index.js"],"sourcesContent":["alert(\"Cual es tu nombre\");"],"names":[],"sourceRoot":""}

@@ -1,1 +1,1 @@
-alert("Esto es una alerta de test")
+alert("Cual es tu nombre")
