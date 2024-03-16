@@ -66,19 +66,10 @@
         "padding_top": 44,
         "padding_bottom": 36
       }
-    },
-    "test_section_Q34WxP": {
-      "type": "test-section",
-      "settings": {
-        "user_img": "shopify:\/\/shop_images\/rack-of-womens-clothing.jpg",
-        "user_name": "Joe Doe",
-        "user_bio": "<p>Esta es la descripción de Joe Doe sobre su negocio, vamos a ver como se ve. <\/p>"
-      }
     }
   },
   "order": [
     "image_banner",
-    "featured_collection",
-    "test_section_Q34WxP"
+    "featured_collection"
   ]
 }
