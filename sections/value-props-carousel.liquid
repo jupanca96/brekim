@@ -3,7 +3,9 @@
         {%- for block in section.blocks -%}
             {%- if block.settings.image != blank -%}
                 <div class="icon-section--content_cards">
+                    {%- if block.settings.link != blank -%}
                     <a href="{{ block.settings.link }}">
+                    {%- endif -%}
                     <img src="{{ block.settings.image | img_url: '300x300' }}" alt=""> 
                     </a>  
                     <p>{{ block.settings.text }}</p> 
