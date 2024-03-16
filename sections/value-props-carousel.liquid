@@ -1,5 +1,11 @@
 <div>
-    <p>Esto es para ver el test</p>
+    <div class="icon-section">
+        {%- for block in section.blocks -%}
+            {%- if block.settings.image != blank -%}
+                {{ block.settings.image | image_url: '300x300' }}
+            {%- endif -%}
+        {%- endfor -%}
+    </div>
     {%  comment  %}  
 
     <div class="profile">
@@ -18,7 +24,7 @@
 
 {% schema %}
     {
-        "name": "Profile",
+        "name": "Icon section",
     
         "settings": [
             {
