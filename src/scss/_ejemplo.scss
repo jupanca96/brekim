@@ -11,3 +11,13 @@
         align-items: center;
     }
 }
+
+@media screen and (max-width: 492px) {
+    .icon-section--content {
+
+        .icon-section--content_cards{
+            margin-left: 40px;
+            margin-right: 40px;
+        }
+    }
+}
