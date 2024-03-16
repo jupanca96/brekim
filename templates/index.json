@@ -93,12 +93,21 @@
             "text": "Text 3",
             "link": "shopify:\/\/blogs\/news"
           }
+        },
+        "row_MNNpNp": {
+          "type": "row",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Frame_4.jpg",
+            "text": "Text 4",
+            "link": "shopify:\/\/pages\/contact"
+          }
         }
       },
       "block_order": [
         "row_MFhriF",
         "row_xnCMLF",
-        "row_QM4rPr"
+        "row_QM4rPr",
+        "row_MNNpNp"
       ],
       "settings": {
       }
