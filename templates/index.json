@@ -89,8 +89,9 @@
         "row_QM4rPr": {
           "type": "row",
           "settings": {
-            "text": "",
-            "link": ""
+            "image": "shopify:\/\/shop_images\/Frame_3.jpg",
+            "text": "Text 3",
+            "link": "shopify:\/\/blogs\/news"
           }
         }
       },
