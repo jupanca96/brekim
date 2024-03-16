@@ -1,4 +1,6 @@
 <div>
+    <p>Esto es para ver el test</p>
+    {%  comment  %}  
 
     <div class="profile">
         <img src="{{ section.settings.user_img | img_url: '300x300' }}" alt="">
@@ -9,13 +11,14 @@
             {{ section.settings.user_bio }}
         </p>
     </div>
+
+    {% endcomment %}
     
 </div>
 
 {% schema %}
     {
         "name": "Profile",
-
     
         "settings": [
             {
