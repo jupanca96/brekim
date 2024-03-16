@@ -81,8 +81,9 @@
         "row_xnCMLF": {
           "type": "row",
           "settings": {
-            "text": "",
-            "link": ""
+            "image": "shopify:\/\/shop_images\/Frame_2.jpg",
+            "text": "Text 2",
+            "link": "shopify:\/\/products\/gift-card"
           }
         },
         "row_QM4rPr": {
