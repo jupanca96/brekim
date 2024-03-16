@@ -4,7 +4,8 @@
             {%- if block.settings.image != blank -%}
                 <a href="{{ block.settings.link }}">
                     <img src="{{ block.settings.image | img_url: '300x300' }}" alt=""> 
-                </a>                               
+                </a>  
+                <p>{{ block.settings.text }}</p>                             
             {%- endif -%}
         {%- endfor -%}
     </div>
