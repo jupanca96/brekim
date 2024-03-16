@@ -15,23 +15,37 @@
 {% schema %}
     {
         "name": "Profile",
+
     
         "settings": [
-          {
-            "type": "image_picker",
-            "id": "user_img",
-            "label": "User Photo"
-          },
-          {
-            "type": "text",
-            "id": "user_name",
-            "label": "User Name"
-          },
-          {
-            "type": "richtext",
-            "id": "user_bio",
-            "label": "User Bio"
+            {
+            "type": "header",
+            "content": "Texto header"
           }
+        ],
+
+        "blocks": [
+            {
+            "type": "row",
+            "name": "icon",
+            "settings": [
+                {
+                "type": "image_picker",
+                "id": "image",
+                "label": "icon_svg"
+                },
+                {
+                "type": "text",
+                "id": "text",
+                "label": "text_icon"
+                },
+                {
+                "type": "url",
+                "id": "link",
+                "label": "link"
+                }
+            ]
+            }
         ],
     
         "presets": [
