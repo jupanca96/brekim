@@ -73,13 +73,40 @@
             "text": "Text 4",
             "link": ""
           }
+        },
+        "row_zmdaDf": {
+          "type": "row",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Frame_1.jpg",
+            "text": "Text 5",
+            "link": "shopify:\/\/products\/the-compare-at-price-snowboard"
+          }
+        },
+        "row_yyD9D3": {
+          "type": "row",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Frame_2.jpg",
+            "text": "Text 6",
+            "link": ""
+          }
+        },
+        "row_nnAUwE": {
+          "type": "row",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Frame_3.jpg",
+            "text": "Text 7",
+            "link": "shopify:\/\/pages\/contact"
+          }
         }
       },
       "block_order": [
         "row_MFhriF",
         "row_xnCMLF",
         "row_QM4rPr",
-        "row_MNNpNp"
+        "row_MNNpNp",
+        "row_zmdaDf",
+        "row_yyD9D3",
+        "row_nnAUwE"
       ],
       "settings": {
       }
