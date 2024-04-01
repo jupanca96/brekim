@@ -48,12 +48,14 @@
       "
       style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
     >
+      
       <div
         class="card__inner {% if settings.card_style == 'standard' %}color-{{ settings.card_color_scheme }} gradient{% endif %}{% if card_product.featured_media or settings.card_style == 'standard' %} ratio{% endif %}"
         style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
-      >
+      >     
         {%- if card_product.featured_media -%}
           <div class="card__media{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
+
             <div class="media media--transparent media--hover-effect">
               {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
               <img
@@ -98,6 +100,16 @@
                   height="{{ card_product.media[1].height }}"
                 >
               {%- endif -%}
+            </div>
+            <div class="best_seller_tag">
+              {%  assign metaobjeto = card_product.metafields.custom.choose_tag_plp.value.best_senner %}
+              {%  assign name_img = card_product.metafields.custom.choose_tag_plp.value.name_tag %}
+
+              {% if metaobjeto %}
+                {% if name_img != collection.title %}
+                <img src="{{ metaobjeto |  img_url: '100x100' }}">
+              {% endif %}  
+              {% endif %}
             </div>
           </div>
         {%- endif -%}
