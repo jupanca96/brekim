@@ -1,7 +1,6 @@
 {{ 'template-collection.css' | asset_url | stylesheet_tag }}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
-{{ 'ajaxinate.min.js' | asset_url | script_tag }}
 
 
 {% if section.settings.image_shape == 'blob' %}
@@ -183,13 +182,6 @@
     {% render 'mask-arch' %}
   {%- endif -%}
 </div>
-
-<script>
-const endlessCollection = new Ajaxinate({
-container: '#product-grid',
-pagination: '.infinite_next',
-});
-</script>
 
 {% schema %}
 {
