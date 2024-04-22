@@ -129,11 +129,46 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "value_props_carousel_gijqKJ": {
+      "type": "value-props-carousel",
+      "blocks": {
+        "row_9GeX9U": {
+          "type": "row",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Frame_4.jpg",
+            "text": "Text 1",
+            "link": "shopify:\/\/products\/the-collection-snowboard-liquid"
+          }
+        },
+        "row_LnQ374": {
+          "type": "row",
+          "settings": {
+            "text": "",
+            "link": ""
+          }
+        },
+        "row_ttFqaE": {
+          "type": "row",
+          "settings": {
+            "text": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_9GeX9U",
+        "row_LnQ374",
+        "row_ttFqaE"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
     "main",
     "related-products",
-    "multirow_DU37dV"
+    "multirow_DU37dV",
+    "value_props_carousel_gijqKJ"
   ]
 }
