@@ -152,8 +152,9 @@
         "row_ttFqaE": {
           "type": "row",
           "settings": {
-            "text": "",
-            "link": ""
+            "image": "shopify:\/\/shop_images\/Frame_1.jpg",
+            "text": "Text 3",
+            "link": "shopify:\/\/products\/selling-plans-ski-wax"
           }
         }
       },
