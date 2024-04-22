@@ -144,8 +144,9 @@
         "row_LnQ374": {
           "type": "row",
           "settings": {
-            "text": "",
-            "link": ""
+            "image": "shopify:\/\/shop_images\/Frame_3.jpg",
+            "text": "Text 2",
+            "link": "shopify:\/\/products\/the-complete-snowboard"
           }
         },
         "row_ttFqaE": {
