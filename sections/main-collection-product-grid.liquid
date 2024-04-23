@@ -155,6 +155,10 @@
                     style="--animation-order: {{ forloop.index }};"
                   {% endif %}
                 >
+                  {% render 'banner-collection-promo'
+                   forloop: forloop
+                   collection: collection
+                  %}
                   {% render 'card-product',
                     card_product: product,
                     media_aspect_ratio: section.settings.image_ratio,
@@ -177,11 +181,25 @@
         {%- endif -%}
       </div>
     </div>
+    <div id="AjaxinatePagination">
+      {% if paginate.next %}
+        <a href="{{ paginate.next.url }}">Loading More</a>
+      {% endif %}
+    </div>
   {%- endpaginate -%}
   {% if section.settings.image_shape == 'arch' %}
     {% render 'mask-arch' %}
   {%- endif -%}
 </div>
+
+<script>
+const endlessCollection = new Ajaxinate({
+container: '#product-grid',
+pagination: '.infinite_next',
+});
+</script>
+
+{{ 'ajaxinate.min.js' | asset_url | script_tag }}
 
 {% schema %}
 {

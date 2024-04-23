@@ -1,38 +1,23 @@
-<div class="icon_section">
+<div class="icon_section">   
     <div class="icon-section--content">
-        {%- for block in section.blocks -%}
-            {%- if block.settings.image != blank -%}
-                <div class="icon-section--content_cards">
-                    {%- if block.settings.link != blank -%}
-                    <a href="{{ block.settings.link }}">
-                    
-                    <img src="{{ block.settings.image | img_url: '300x300' }}" alt=""> 
-                    </a> 
-                  {%- endif -%} 
-                    <p>{{ block.settings.text }}</p> 
-                </div>                                            
-            {%- endif -%}
-        {%- endfor -%}
-    </div>
-    {%  comment  %}  
-
-    <div class="profile">
-        <img src="{{ section.settings.user_img | img_url: '300x300' }}" alt="">
-        <h3>
-        {{ section.settings.user_name }}
-        </h3>
-        <p>
-            {{ section.settings.user_bio }}
-        </p>
-    </div>
-
-    {% endcomment %}
-    
+            {%- for block in section.blocks -%}
+                {%- if block.settings.image != blank -%}
+                    <div class="icon-section--content_cards">
+                        {%- if block.settings.link != blank -%}
+                            <a href="{{ block.settings.link }}">                    
+                            <img src="{{ block.settings.image | img_url: '300x300' }}" alt=""> 
+                            </a> 
+                        {%- endif -%} 
+                        <p>{{ block.settings.text }}</p> 
+                    </div>                                            
+                {%- endif -%}
+            {%- endfor -%}
+    </div> 
 </div>
 
 {% schema %}
     {
-        "name": "Icon section",
+        "name": "Icon section2",
     
         "settings": [
             {
@@ -82,5 +67,5 @@
     }
   ]
     }
-    {% endschema %}
+{% endschema %}
     

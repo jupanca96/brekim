@@ -81,3 +81,7 @@ a.pagination__item:hover::after {
   display: none;
 }
 
+.pagination__list{
+  display: none;
+}
+

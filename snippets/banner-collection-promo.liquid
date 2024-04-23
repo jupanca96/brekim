@@ -1,0 +1,24 @@
+{% comment %}
+  {% render 'banner-collection-promo'
+    forloop: forloop
+    collection: collection
+  %}
+                desk     mobile
+    short_code: R or L|U or D|
+{% endcomment %}
+
+{% liquid
+  assign size_loop = collection.products.size
+%}
+
+{% if size_loop >= 3 %}
+  {% if forloop.index == 3 %}
+      {% render 'banner-collection'%}
+  {% endif %}
+{% endif %}
+
+{% if size_loop >= 5 %}
+  {% if forloop.index == 6 %}
+      {% render 'banner-collection'%}
+  {% endif %}
+{% endif %}

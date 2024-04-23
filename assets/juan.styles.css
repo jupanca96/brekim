@@ -23,3 +23,41 @@
 .best_seller_tag {
   position: relative;
 }
+
+.article-banner {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  grid-column-end: span 2;
+  justify-content: normal;
+  position: relative;
+}
+
+.article-banner__img-container {
+  width: 100%;
+}
+
+.article-banner img {
+  width: 100px;
+  height: 100px;
+  justify-content: center;
+}
+
+#AjaxinatePagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#AjaxinatePagination a {
+  width: 120px;
+  height: 45px;
+  display: inline-block;
+  text-align: center;
+  padding: 5px;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  font: inherit;
+  cursor: pointer;
+}

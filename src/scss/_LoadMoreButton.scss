@@ -1,0 +1,18 @@
+#AjaxinatePagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#AjaxinatePagination a{
+    width: 120px;
+    height: 45px;
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    font: inherit;
+    cursor: pointer;
+}

@@ -93,6 +93,10 @@ class FacetFiltersForm extends HTMLElement {
   }
 
   static renderProductCount(html) {
+    const endlessCollection = new Ajaxinate({
+      container: '#product-grid',
+      pagination: '.infinite_next',
+      });
     const count = new DOMParser().parseFromString(html, 'text/html').getElementById('ProductCount').innerHTML;
     const container = document.getElementById('ProductCount');
     const containerDesktop = document.getElementById('ProductCountDesktop');
