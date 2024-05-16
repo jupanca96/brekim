@@ -1,0 +1,85 @@
+<div class="icon_section">
+    <div class="icon-section--content">
+        {%- for block in section.blocks -%}
+            {%- if block.settings.image != blank -%}
+                <div class="icon-section--content_cards">
+                    {%- if block.settings.link != blank -%}
+                    <a href="{{ block.settings.link }}">
+                    
+                    <img src="{{ block.settings.image | img_url: '300x300' }}" alt=""> 
+                    </a> 
+                  {%- endif -%} 
+                    <p>{{ block.settings.text }}</p> 
+                </div>                                            
+            {%- endif -%}
+        {%- endfor -%}
+    </div>
+    {%  comment  %}  
+
+    <div class="profile">
+        <img src="{{ section.settings.user_img | img_url: '300x300' }}" alt="">
+        <h3>
+        {{ section.settings.user_name }}
+        </h3>
+        <p>
+            {{ section.settings.user_bio }}
+        </p>
+    </div>
+
+    {% endcomment %}
+    
+</div>
+
+{% schema %}
+    {
+        "name": "Ya se agrego practica",
+    
+        "settings": [
+            {
+            "type": "header",
+            "content": "Texto header"
+          }
+        ],
+
+        "blocks": [
+            {
+            "type": "row",
+            "name": "icon",
+            "settings": [
+                {
+                "type": "image_picker",
+                "id": "image",
+                "label": "icon_svg"
+                },
+                {
+                "type": "text",
+                "id": "text",
+                "label": "text_icon"
+                },
+                {
+                "type": "url",
+                "id": "link",
+                "label": "link"
+                }
+            ]
+            }
+        ],
+    
+        "presets": [
+    {
+      "name": "Practica",
+      "blocks": [
+        {
+          "type": "row"
+        },
+        {
+          "type": "row"
+        },
+        {
+          "type": "row"
+        }
+      ]
+    }
+  ]
+    }
+    {% endschema %}
