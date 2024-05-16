@@ -16,10 +16,10 @@
     </div>
 
     <div>
-        {%- if section.settings.show_announcement === false -%}
-            <p>FALSE</p>   
+        {%- if section.settings.show_announcement -%}
+            <p>TRUE</p>   
             {% else %}
-            <p>TRUE</p>                              
+            <p>FALSE</p>                              
         {%- endif -%}
     </div>
     {%  comment  %}  
