@@ -193,8 +193,9 @@
         "row_EWGLJe": {
           "type": "row",
           "settings": {
-            "text": "",
-            "link": ""
+            "image": "shopify:\/\/shop_images\/Frame_2.jpg",
+            "text": "Icon 7",
+            "link": "shopify:\/\/collections"
           }
         }
       },
