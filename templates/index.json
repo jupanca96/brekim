@@ -169,8 +169,9 @@
         "row_dXzi66": {
           "type": "row",
           "settings": {
-            "text": "",
-            "link": ""
+            "image": "shopify:\/\/shop_images\/Frame_1.jpg",
+            "text": "Icon 4",
+            "link": "shopify:\/\/collections"
           }
         }
       },
