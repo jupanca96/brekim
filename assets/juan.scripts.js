@@ -88,7 +88,8 @@ document.addEventListener("DOMContentLoaded", function () {
   var endlessScroll = new Ajaxinate({
     container: '#product-grid',
     pagination: '#AjaxinatePagination',
-    method: 'click'
+    method: 'click',
+    loadingText: "Loading"
   });
 
   // slider para value props home

@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
       container: '#product-grid',
       pagination: '#AjaxinatePagination',
       method: 'click',
+      loadingText: "Loading"
     });
 
     // slider para value props home
