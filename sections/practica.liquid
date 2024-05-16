@@ -38,7 +38,87 @@
             {
             "type": "header",
             "content": "Texto header"
-          }
+            }
+
+            {
+            "type": "checkbox",
+            "id": "show_announcement",
+            "label": "Show announcement",
+            "default": true
+            }
+
+            {
+            "type": "number",
+            "id": "products_per_page",
+            "label": "Products per page",
+            "default": 20
+            }
+
+            {
+            "type": "radio",
+            "id": "logo_aligment",
+            "label": "Logo alignment",
+            "options": [
+                {
+                "value": "left",
+                "label": "Left"
+                },
+                {
+                "value": "centered",
+                "label": "Centered"
+                }
+            ],
+            "default": "left"
+            }
+
+            {
+            "type": "range",
+            "id": "font_size",
+            "min": 12,
+            "max": 24,
+            "step": 1,
+            "unit": "px",
+            "label": "Font size",
+            "default": 16
+            }
+
+            {
+            "type": "select",
+            "id": "vertical_alignment",
+            "label": "Vertical alignment",
+            "options": [
+                {
+                "value": "top",
+                "label": "Top"
+                },
+                {
+                "value": "middle",
+                "label": "Middle"
+                },
+                {
+                "value": "bottom",
+                "label": "Bottom"
+                }
+            ],
+            "default": "middle"
+            }
+
+            {
+            "type": "text",
+            "id": "footer_linklist_title",
+            "label": "Heading",
+            "default": "Quick links"
+            }
+
+            {
+            "type": "textarea",
+            "id": "home_welcome_message",
+            "label": "Welcome message",
+            "default": "Welcome to my shop!"
+            }
+
+
+
         ],
 
         "blocks": [
