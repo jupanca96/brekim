@@ -153,8 +153,9 @@
         "row_LcLwQD": {
           "type": "row",
           "settings": {
-            "text": "",
-            "link": ""
+            "image": "shopify:\/\/shop_images\/Frame_3.jpg",
+            "text": "Icon 2",
+            "link": "shopify:\/\/collections"
           }
         },
         "row_VPNwiH": {
