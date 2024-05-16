@@ -26,60 +26,49 @@
       width: 800px;
     }
 
-    .swiper-slide {
+   /* .swiper-slide {
       height: 300px;
-      background: #882525;
+      background: hsl(124, 57%, 34%);
       line-height: 300px;
       text-align: center;
-    }
+      border: 2px, solid, #000;
+    }*/
 
-    .swiper-slide:nth-child(2) {
-      background: #8acc7d;
-    }
+   .icon-section--content2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 40px 20px 40px 20px;
+}
 
-    .swiper-slide:nth-child(3) {
-      background: #b7cc7d;
-    }
-
-    .swiper-slide:nth-child(4) {
-      background: #9eb75c;
-    }
-
-    .swiper-slide:nth-child(5) {
-      background: #7da8cc;
-    }
-
-    .swiper-slide:nth-child(6) {
-      background: #96cc7d;
-    }
-
-    .swiper-slide:nth-child(7) {
-      background: #cc7dae;
+    .icon-section--content_cards2 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
   </style>
 </head>
 
 <body>
   <!-- Swiper -->
-
-  <h3>
-    Slider5 is visible when you slide to 2,3, or 4, and slider5 has
-    "swiper-slide-visible" className
-  </h3>
   <br />
-  <div class="swiper mySwiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">Slide 1</div>
-      <div class="swiper-slide">Slide 2</div>
-      <div class="swiper-slide">Slide 3</div>
-      <div class="swiper-slide">Slide 4</div>
-      <div class="swiper-slide">Slide 5</div>
-      <div class="swiper-slide">Slide 6</div>
-      <div class="swiper-slide">Slide 7</div>
-      <div class="swiper-slide">Slide 8</div>
-      <div class="swiper-slide">Slide 9</div>
+  <div class="icon_section2 swiper mySwiper">
+    <div class="icon-section--content2 swiper-wrapper">
+        {%- for block in section.blocks -%}
+            {%- if block.settings.image != blank -%}
+                <div class="icon-section--content_cards2 swiper-slide">
+                    {%- if block.settings.link != blank -%}
+                    <a href="{{ block.settings.link }}">
+                    
+                    <img src="{{ block.settings.image | img_url: '300x300' }}" alt=""> 
+                    </a> 
+                  {%- endif -%} 
+                    <p>{{ block.settings.text }}</p> 
+                </div>                                            
+            {%- endif -%}
+        {%- endfor -%}
     </div>
-  </div>
+</div>
 
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -88,14 +77,14 @@
   <script>
     var swiper = new Swiper(".mySwiper", {
       watchSlidesProgress: true,
-      slidesPerView: 3,
+      slidesPerView: 5,
     });
   </script>
 </body>
 
 {% schema %}
     {
-        "name": "Icon section2",
+        "name": "Icon slider",
     
         "settings": [
             {
