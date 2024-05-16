@@ -190,11 +190,19 @@
             "link": "shopify:\/\/products\/selling-plans-ski-wax"
           }
         },
-        "row_EWGLJe": {
+        "row_i4NcGm": {
           "type": "row",
           "settings": {
             "image": "shopify:\/\/shop_images\/Frame_2.jpg",
             "text": "Icon 7",
+            "link": "shopify:\/\/collections"
+          }
+        },
+        "row_qmnAzy": {
+          "type": "row",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Frame_1.jpg",
+            "text": "Icon 8",
             "link": "shopify:\/\/collections"
           }
         }
@@ -206,7 +214,8 @@
         "row_dXzi66",
         "row_iw38xb",
         "row_qCAEaU",
-        "row_EWGLJe"
+        "row_i4NcGm",
+        "row_qmnAzy"
       ],
       "settings": {
       }
