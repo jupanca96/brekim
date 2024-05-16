@@ -219,12 +219,53 @@
       ],
       "settings": {
       }
+    },
+    "practica_NEUkVV": {
+      "type": "practica",
+      "blocks": {
+        "row_fEwDeQ": {
+          "type": "row",
+          "settings": {
+            "text": "",
+            "link": ""
+          }
+        },
+        "row_m9zHaw": {
+          "type": "row",
+          "settings": {
+            "text": "",
+            "link": ""
+          }
+        },
+        "row_hD8aWf": {
+          "type": "row",
+          "settings": {
+            "text": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_fEwDeQ",
+        "row_m9zHaw",
+        "row_hD8aWf"
+      ],
+      "settings": {
+        "show_announcement": false,
+        "products_per_page": 20,
+        "logo_aligment": "left",
+        "font_size": 16,
+        "vertical_alignment": "middle",
+        "footer_linklist_title": "Quick links",
+        "home_welcome_message": "Welcome to my shop!"
+      }
     }
   },
   "order": [
     "image_banner",
     "value_props_carousel_GyYyfq",
     "featured_collection",
-    "value2_DcY8U4"
+    "value2_DcY8U4",
+    "practica_NEUkVV"
   ]
 }
