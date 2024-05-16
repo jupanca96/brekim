@@ -251,7 +251,7 @@
         "row_hD8aWf"
       ],
       "settings": {
-        "show_announcement": false,
+        "show_announcement": true,
         "products_per_page": 20,
         "logo_aligment": "left",
         "font_size": 16,
