@@ -145,6 +145,14 @@
         "row_BTyG3J": {
           "type": "row",
           "settings": {
+            "image": "shopify:\/\/shop_images\/Frame_4.jpg",
+            "text": "Icon 1",
+            "link": "shopify:\/\/collections"
+          }
+        },
+        "row_LcLwQD": {
+          "type": "row",
+          "settings": {
             "text": "",
             "link": ""
           }
@@ -166,6 +174,7 @@
       },
       "block_order": [
         "row_BTyG3J",
+        "row_LcLwQD",
         "row_VPNwiH",
         "row_dXzi66"
       ],
