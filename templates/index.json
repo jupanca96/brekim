@@ -161,8 +161,9 @@
         "row_VPNwiH": {
           "type": "row",
           "settings": {
-            "text": "",
-            "link": ""
+            "image": "shopify:\/\/shop_images\/Frame_2.jpg",
+            "text": "Icon 3",
+            "link": "shopify:\/\/collections"
           }
         },
         "row_dXzi66": {
