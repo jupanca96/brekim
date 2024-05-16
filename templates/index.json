@@ -173,13 +173,38 @@
             "text": "Icon 4",
             "link": "shopify:\/\/collections"
           }
+        },
+        "row_iw38xb": {
+          "type": "row",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Frame_4.jpg",
+            "text": "Icon 5",
+            "link": "shopify:\/\/collections"
+          }
+        },
+        "row_qCAEaU": {
+          "type": "row",
+          "settings": {
+            "text": "",
+            "link": ""
+          }
+        },
+        "row_EWGLJe": {
+          "type": "row",
+          "settings": {
+            "text": "",
+            "link": ""
+          }
         }
       },
       "block_order": [
         "row_BTyG3J",
         "row_LcLwQD",
         "row_VPNwiH",
-        "row_dXzi66"
+        "row_dXzi66",
+        "row_iw38xb",
+        "row_qCAEaU",
+        "row_EWGLJe"
       ],
       "settings": {
       }
