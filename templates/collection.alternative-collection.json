@@ -4,7 +4,7 @@
       "type": "main-collection-banner2",
       "settings": {
         "image_banner2": "{{ collection.metafields.custom.image_banner.value }}",
-        "intro_text": "<p>Este texto debe mostrarse en la introducción de la colección<\/p>"
+        "intro_text": "{{ collection.metafields.custom.texto_banner | metafield_tag }}"
       }
     },
     "product-grid": {
