@@ -1,13 +1,14 @@
 <div>
-    <img src="{{ section.settings.image_banner2 | img_url: '300x300' }}" alt="">
-    <img src="{{ collection.image | img_url: '300x300' }}" alt="">
 
-    <p>{{ collection.title }}</p>
-    <p>{{ collection.description }}</p>
-
-    <h3>
+    {% if section.settings.intro_text %}
+        <h3>
         {{ section.settings.intro_text }}
-    </h3>
+        </h3>
+    {%  elseif section.settings.image_banner2 %}
+        <img src="{{ section.settings.image_banner2 | img_url: '300x300' }}" alt="">
+    {% else %}
+        <p>No hay nada para mostrar</p>
+    {% endif %}
 
 </div>
 
