@@ -1,5 +1,10 @@
 <div>
-    <p>Probando render de esta coleección</p>
+    <img src="{{ section.settings.image_banner2 | img_url: '300x300' }}" alt="">
+
+    <h3>
+        {{ section.settings.intro_text }}
+    </h3>
+
 </div>
 
 
@@ -16,7 +21,7 @@
 
         {
             "type": "richtext",
-            "id": "paragraph",
+            "id": "intro_text",
             "label": "Paragraph"
         }       
 
