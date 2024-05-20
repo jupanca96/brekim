@@ -4,7 +4,7 @@
       "type": "main-collection-banner2",
       "settings": {
         "image_banner2": "shopify:\/\/shop_images\/theme_cover_image.jpg",
-        "paragraph": "<p>Este es un texto de prueba<\/p>"
+        "intro_text": "<p>Este texto debe mostrarse en la introducción de la colección<\/p>"
       }
     },
     "product-grid": {
