@@ -230,6 +230,13 @@
             "link": ""
           }
         },
+        "row_i39kKT": {
+          "type": "row",
+          "settings": {
+            "text": "",
+            "link": ""
+          }
+        },
         "row_m9zHaw": {
           "type": "row",
           "settings": {
@@ -247,6 +254,7 @@
       },
       "block_order": [
         "row_fEwDeQ",
+        "row_i39kKT",
         "row_m9zHaw",
         "row_hD8aWf"
       ],
@@ -259,6 +267,14 @@
         "footer_linklist_title": "Quick links",
         "home_welcome_message": "Welcome to my shop!"
       }
+    },
+    "test_section_Xaqhyy": {
+      "type": "test-section",
+      "settings": {
+        "user_img": "shopify:\/\/shop_images\/rack-of-womens-clothing.jpg",
+        "user_name": "Hola nombre",
+        "user_bio": "<p>Hola bio<\/p>"
+      }
     }
   },
   "order": [
@@ -266,6 +282,7 @@
     "value_props_carousel_GyYyfq",
     "featured_collection",
     "value2_DcY8U4",
-    "practica_NEUkVV"
+    "practica_NEUkVV",
+    "test_section_Xaqhyy"
   ]
 }
