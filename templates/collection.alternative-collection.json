@@ -3,7 +3,7 @@
     "banner": {
       "type": "main-collection-banner2",
       "settings": {
-        "image_banner2": "shopify:\/\/shop_images\/theme_cover_image.jpg",
+        "image_banner2": "{{ collection.metafields.custom.image_banner.value }}",
         "intro_text": "<p>Este texto debe mostrarse en la introducción de la colección<\/p>"
       }
     },
