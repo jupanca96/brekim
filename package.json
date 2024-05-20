@@ -67,5 +67,8 @@
             "eslint -c .config/code/.eslintrc.json",
             "git add"
         ]
+    },
+    "dependencies": {
+        "ajaxinate": "^3.0.1"
     }
 }

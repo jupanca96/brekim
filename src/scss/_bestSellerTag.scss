@@ -1,3 +1,8 @@
 .best_seller_tag {
-    position: relative;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    &__R{
+        text-align: right;
+    }
 }

@@ -1,6 +1,7 @@
 {{ 'template-collection.css' | asset_url | stylesheet_tag }}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
+{% comment %} {{ 'ajaxinate.min.js' | asset_url | script_tag }} {% endcomment %}
 
 
 {% if section.settings.image_shape == 'blob' %}
@@ -177,29 +178,24 @@
             {%- if paginate.pages > 1 -%}
               {% render 'pagination', paginate: paginate, anchor: '' %}
             {%- endif -%}
+
+            <div id="AjaxinatePagination">
+            {% if paginate.next %}
+              <a href="{{ paginate.next.url }}">Loading More</a>
+            {% endif %}
+            </div>
           </div>
         {%- endif -%}
       </div>
     </div>
-    <div id="AjaxinatePagination">
-      {% if paginate.next %}
-        <a href="{{ paginate.next.url }}">Loading More</a>
-      {% endif %}
-    </div>
+    
   {%- endpaginate -%}
   {% if section.settings.image_shape == 'arch' %}
     {% render 'mask-arch' %}
   {%- endif -%}
 </div>
 
-{% comment %} <script>
-const endlessCollection = new Ajaxinate({
-container: '#product-grid',
-pagination: '.infinite_next',
-});
-</script> {% endcomment %}
 
-{{ 'ajaxinate.min.js' | asset_url | script_tag }}
 
 {% schema %}
 {

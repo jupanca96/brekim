@@ -1,11 +1,13 @@
 import { swiperValueprops } from "./swiper";
 
+import { Ajaxinate } from "ajaxinate";
+
 
 document.addEventListener("DOMContentLoaded", function() {
 
     // ajaxinate
-    var endlessScroll = new Ajaxinate({
-      container: '#product-grid',
+    new Ajaxinate({
+      container: '#AjaxinateContainer',
       pagination: '#AjaxinatePagination',
       method: 'click',
       loadingText: "Loading"
