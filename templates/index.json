@@ -258,6 +258,7 @@
         "row_m9zHaw",
         "row_hD8aWf"
       ],
+      "disabled": true,
       "settings": {
         "show_announcement": true,
         "products_per_page": 20,
