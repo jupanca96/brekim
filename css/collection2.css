@@ -1,78 +1,3 @@
-.icon-section--content {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  margin: 40px 20px 40px 20px;
-}
-.icon-section--content .icon-section--content_cards {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-@media screen and (max-width: 492px) {
-  .icon-section--content .icon-section--content_cards {
-    margin-left: 40px;
-    margin-right: 40px;
-  }
-}
-.article-banner {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  grid-column-end: span 2;
-  justify-content: normal;
-  position: relative;
-}
-
-.article-banner__img-container {
-  width: 100%;
-}
-
-.article-banner img {
-  width: 100px;
-  height: 100px;
-  justify-content: center;
-}
-
-#AjaxinatePagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#AjaxinatePagination a {
-  width: 120px;
-  height: 45px;
-  display: inline-block;
-  text-align: center;
-  padding: 5px;
-  background-color: black;
-  color: white;
-  text-decoration: none;
-  font: inherit;
-  cursor: pointer;
-}
-
-.best_seller_tag {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-.best_seller_tag__R {
-  position: absolute;
-  top: 0;
-  left: 80%;
-  z-index: 1;
-}
-
-.tag_best-seller img {
-  width: 50px;
-  height: 50px;
-}
-
 .section_banner {
   width: 100%;
   height: 40vh;
@@ -108,6 +33,11 @@
   width: 50%;
   -o-object-fit: none;
      object-fit: none;
+}
+
+.card_section {
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .grilla_cards {
@@ -188,24 +118,23 @@
   display: flex;
   justify-content: center;
 }
-
 .paginate_collection-2 .prev {
   margin-right: 20px;
 }
-
+.paginate_collection-2 .prev a {
+  text-decoration: none;
+}
 .paginate_collection-2 .page {
   margin-left: 10px;
   margin-right: 10px;
 }
-
 .paginate_collection-2 .current {
   margin-left: 10px;
   margin-right: 10px;
 }
-
 .paginate_collection-2 .next {
   margin-left: 18px;
 }
 .paginate_collection-2 .next a {
   text-decoration: none;
-}/*# sourceMappingURL=index.css.map */
+}/*# sourceMappingURL=collection2.css.map */

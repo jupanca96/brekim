@@ -1,0 +1,71 @@
+<div class="card_section">
+  {% if collection.all_products_count > 0 %}
+    {% paginate collection.products by 6 %}
+
+      <div class="grilla_cards">
+        {% for product in collection.products %}
+          <div class="product_card">
+
+            <div class="product-image">
+              <img class="show-image-card first-image" src="{{ product.featured_image | product_img_url: 'medium' }}" alt="">
+              <img class="show-image-card second-image" src="{{ product.media[1] | product_img_url: 'medium' }}" alt="">
+            
+              {% if product.available == false %}               
+                <p class="tag_sold-out">Sold Out</p>                
+              {% endif %}
+      
+              {% if product.compare_at_price > product.price %}                
+                <p class="tag_sale">Sale</p>                
+              {% endif %}
+
+              <div class="best_seller_tag{% if product.available == false or 
+              product.compare_at_price > product.price %}__R{% endif %}">
+                {%  assign metaobjeto = product.metafields.custom.choose_tag_plp.value.best_senner %}
+                {%  assign name_img = product.metafields.custom.choose_tag_plp.value.name_tag %}
+    
+                {% if metaobjeto %}
+                  {% if name_img != collection.title %}
+                    <div class="tag_best-seller">
+                     <img src="{{ metaobjeto |  img_url: '100x100' }}">
+                    </div>            
+                  {% endif %}  
+                {% endif %}
+              </div>
+            
+              </div>
+            
+    
+            <h2>{{ product.title }}</h2>
+            <p>{{ section.settings.products_per_page }}</p>
+    
+            <p>{{ product.price | money_with_currency }}</p>     
+            
+          </div>
+
+            
+        {% endfor %}
+      </div>
+
+      <div class="paginate_collection-2">
+        {{ paginate | default_pagination }}
+      </div>      
+    {% endpaginate %}
+  {% else %}
+    <p>No hay productos en esta colección</p>
+  {% endif %}
+  
+</div>
+
+{% schema %}
+  {
+      "name": "Collection 2",
+  
+      "settings": [
+        {
+          "type": "range",
+          "id": "products_per_page",
+          "label": "Productos por página"
+        }
+      ]
+  }
+  {% endschema %}
