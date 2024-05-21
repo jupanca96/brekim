@@ -13,7 +13,8 @@
         "products_per_page": 16,
         "image_to_plp": "shopify:\/\/shop_images\/rack-of-womens-clothing.jpg",
         "text_plp": "Texto para PLP",
-        "link_plp": "shopify:\/\/collections\/all-products"
+        "link_plp": "shopify:\/\/collections\/all-products",
+        "link_text": "Texto para BOTON"
       }
     }
   },
