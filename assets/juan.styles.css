@@ -66,3 +66,39 @@
 .best_seller_tag__R {
   text-align: right;
 }
+
+.section_banner {
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(177, 177, 181);
+}
+
+.text_container {
+  width: 30%;
+  height: 100%;
+}
+
+.text_container h1 {
+  text-align: center;
+}
+
+.image_container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.image_container h1 {
+  width: 50%;
+  text-align: center;
+}
+
+.image_container img {
+  width: 50%;
+  object-fit: none;
+}

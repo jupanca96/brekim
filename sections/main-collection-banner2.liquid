@@ -1,16 +1,21 @@
-<div>
+{% if section.settings.intro_text != blank or section.settings.image_banner2 != blank %}
+<div class="section_banner">
 
-    {% if section.settings.intro_text %}
-        <h3>
-        {{ section.settings.intro_text }}
-        </h3>
-    {%  elsif section.settings.image_banner2 %}
-        <img src="{{ section.settings.image_banner2 | img_url: '300x300' }}" alt="">
-    {% else %}
-        <p>No hay nada para mostrar</p>
+    {% if section.settings.intro_text != blank %}
+        <div class="text_container">
+            <h1>{{ collection.title }}</h1>
+            <h3>
+                {{ section.settings.intro_text }}
+            </h3>
+        </div>        
+    {%  elsif section.settings.image_banner2 != blank %}
+        <div class="image_container">
+            <h1>{{ collection.title }}</h1>
+            <img src="{{ section.settings.image_banner2 | img_url: '250x350' }}" alt="">
+        </div>        
     {% endif %}
-
 </div>
+{% endif %}
 
 
 {% schema %}
