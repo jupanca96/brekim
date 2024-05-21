@@ -36,7 +36,7 @@
             
     
             <h2>{{ product.title }}</h2>
-            <p>{{ section.settings.abc }}</p>
+            <p>{{ section.settings.products_per_page }}</p>
     
             <p>{{ product.price | money_with_currency }}</p>     
             
@@ -59,14 +59,14 @@
 {% schema %}
 {
   "name": "Grilla de productos",
-
   "settings": [
       {
         "type": "range",
-        "id": "abc",
+        "id": "products_per_page",
         "min": 3,
         "max": 16,
-        "unit": "quantity",
+        "step": 1,
+        "unit": "qn",
         "label": "Productos por página",
         "default": 6
       }
