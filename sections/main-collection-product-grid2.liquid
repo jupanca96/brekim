@@ -41,7 +41,7 @@
           </div>
 
           {% assign is_mult_of_three = counter | modulo: 3 %}
-          {% if is_mult_of_three == 0 %}
+          {% if is_mult_of_three == 1 %}
             <div class="info-card">
               <img src="{{ section.settings.image_to_plp | product_img_url: 'medium' }}" alt="">
               <p>{{section.settings.text_plp}}</p>
