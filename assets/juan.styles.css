@@ -219,3 +219,10 @@
   width: 300px;
   height: 500px;
 }
+.info-card img {
+  width: 300px;
+  height: 300px;
+}
+.info-card p {
+  font-size: 24px;
+}
