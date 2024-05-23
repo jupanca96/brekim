@@ -4,7 +4,9 @@
       "type": "main-collection-banner2",
       "settings": {
         "image_banner2": "{{ collection.metafields.custom.image_banner.value }}",
-        "intro_text": "{{ collection.metafields.custom.texto_banner | metafield_tag }}"
+        "intro_text": "{{ collection.metafields.custom.texto_banner | metafield_tag }}",
+        "background_color": "#ef8383",
+        "text_color": "#dea821"
       }
     },
     "product-grid": {
