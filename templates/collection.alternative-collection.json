@@ -13,7 +13,7 @@
       "type": "main-collection-product-grid2",
       "settings": {
         "products_per_page": 16,
-        "image_to_plp": "shopify:\/\/shop_images\/rack-of-womens-clothing.jpg",
+        "image_to_plp": "shopify:\/\/shop_images\/pexels-sozutova-13086432_1.jpg",
         "text_plp": "Texto para PLP",
         "link_plp": "shopify:\/\/collections\/all-products",
         "link_text": "Texto para BOTON",
