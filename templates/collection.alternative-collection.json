@@ -15,7 +15,7 @@
         "text_plp": "Texto para PLP",
         "link_plp": "shopify:\/\/collections\/all-products",
         "link_text": "Texto para BOTON",
-        "position-text_plp": "top"
+        "position-text_plp": "bottom"
       }
     }
   },
