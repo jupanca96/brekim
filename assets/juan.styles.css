@@ -82,33 +82,28 @@
   display: flex;
   justify-content: center;
 }
-
-.text_container {
+.section_banner .text_container {
   width: 30%;
   height: 100%;
 }
-
-.text_container h1 {
+.section_banner .text_container .h1 {
   text-align: center;
 }
-
-.image_container {
+.section_banner .image_container {
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
 }
-
-.image_container h1 {
-  width: 50%;
-  text-align: center;
+.section_banner .image_container h1 {
+  position: relative;
+  top: -70%;
 }
-
-.image_container img {
-  width: 50%;
-  object-fit: none;
+.section_banner .image_container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 #shopify-section-template--22355156336948__product-grid {

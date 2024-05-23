@@ -3,35 +3,32 @@
     height: 40vh;
     display: flex;
     justify-content: center;
+    .text_container {
+        width: 30%;
+        height: 100%;
+        .h1 {
+            text-align: center;
+        }
+    };
+    .image_container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h1 {
+            position: relative;
+            top: -70%;
+        };
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            
+        }
+    }
 }
 
-.text_container {
-    width: 30%;
-    height: 100%;
-}
-
-.text_container h1 {
-    text-align: center;
-}
-
-.image_container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-.image_container h1 {
-    width: 50%;
-    text-align: center;
-}
-
-.image_container img {
-    width: 50%;
-    object-fit: none;
-}
 
 #shopify-section-template--22355156336948__product-grid{
     display: flex;

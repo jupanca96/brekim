@@ -15,8 +15,8 @@
         </div>        
     {%  elsif section.settings.image_banner2 != blank %}
         <div class="image_container">
-            <h1>{{ collection.title }}</h1>
-            <img src="{{ section.settings.image_banner2 | img_url: '250x350' }}" alt="">
+            <img src="{{ section.settings.image_banner2 | img_url: '250x350' }}" alt="">    
+            <h1 style="color: {{ text_color }};">{{ collection.title }}</h1>            
         </div>        
     {% endif %}
 </div>
