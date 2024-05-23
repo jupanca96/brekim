@@ -7,6 +7,7 @@
             <h3>
                 {{ section.settings.intro_text }}
             </h3>
+            <p>{{section.settings.background_color}}</p>
         </div>        
     {%  elsif section.settings.image_banner2 != blank %}
         <div class="image_container">
@@ -33,6 +34,18 @@
             "type": "richtext",
             "id": "intro_text",
             "label": "Paragraph"
+        },
+        {
+            "type": "color",
+            "id": "background_color",
+            "label": "Color fondo banner",
+            "default": "#000000"
+        },
+        {
+            "type": "color",
+            "id": "text_color",
+            "label": "Color del texto",
+            "default": "#000000"
         }       
 
       ]
