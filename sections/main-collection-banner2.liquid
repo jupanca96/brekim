@@ -1,15 +1,17 @@
 {% assign banner_color = section.settings.background_color %}
+{% assign text_color = section.settings.text_color %}
 
 {% if section.settings.intro_text != blank or section.settings.image_banner2 != blank %}
 <div class="section_banner" style="background-color: {{ banner_color }};">
 
     {% if section.settings.intro_text != blank %}
         <div class="text_container">
-            <h1>{{ collection.title }}</h1>
-            <h3>
+            <h1 style="color: {{ text_color }};">
+            {{ collection.title }}
+            </h1>
+            <h3 style="color: {{ text_color }};">
                 {{ section.settings.intro_text }}
             </h3>
-            <p>{{ banner_color }}</p>
         </div>        
     {%  elsif section.settings.image_banner2 != blank %}
         <div class="image_container">
