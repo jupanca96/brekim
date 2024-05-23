@@ -216,31 +216,33 @@
 }
 .card_section .grilla_cards .info-card p {
   font-size: 24px;
-  position: absolute;
+  position: relative;
   margin: 0;
+  height: 0;
 }
 .card_section .grilla_cards .info-card a {
   text-decoration: none;
-  position: absolute;
+  position: relative;
   margin: 0;
+  height: 0;
 }
 .card_section .grilla_cards .info-card .top_title {
-  bottom: 160px;
+  bottom: 450px;
 }
 .card_section .grilla_cards .info-card .top_cta {
-  bottom: 140px;
+  bottom: 415px;
 }
 .card_section .grilla_cards .info-card .center_title {
-  bottom: -10px;
+  bottom: 280px;
 }
 .card_section .grilla_cards .info-card .center_cta {
-  bottom: -30px;
+  bottom: 245px;
 }
 .card_section .grilla_cards .info-card .bottom_title {
-  bottom: -190px;
+  bottom: 100px;
 }
 .card_section .grilla_cards .info-card .bottom_cta {
-  bottom: -210px;
+  bottom: 65px;
 }
 .card_section .paginate_collection-2 {
   display: flex;

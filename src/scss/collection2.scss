@@ -136,31 +136,33 @@
             };
             p{
                 font-size: 24px;
-                position: absolute;
+                position: relative;
                 margin: 0;
+                height: 0;
             }
             a{
                 text-decoration: none;
-                position: absolute;
+                position: relative;
                 margin: 0;
+                height: 0;
             };
             .top_title{    
-                bottom: 160px;
+                bottom: 450px;
             };
             .top_cta{
-                bottom: 140px;
+                bottom: 415px;
             };
             .center_title{
-                bottom: -10px;
+                bottom: 280px;
             };
             .center_cta{
-                bottom: -30px;
+                bottom: 245px;
             };
             .bottom_title{
-                bottom: -190px;
+                bottom: 100px;
             };
             .bottom_cta{
-                bottom: -210px;
+                bottom: 65px;
             }
         }
     };    
