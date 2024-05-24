@@ -5,7 +5,7 @@
       "settings": {
         "image_banner2": "{{ collection.metafields.custom.image_banner.value }}",
         "intro_text": "{{ collection.metafields.custom.texto_banner | metafield_tag }}",
-        "background_color": "#ef8383",
+        "background_color": "#8b83ef",
         "text_color": "#dd1d1d"
       }
     },
