@@ -282,6 +282,23 @@ document.addEventListener("DOMContentLoaded", function () {
     loadingText: "Loading"
   });
 
+  //En collection, para las porudct card podremos cambiar la imagen y el id dependiendo de la varainte
+
+  var productCards = document.querySelectorAll('.product_card');
+  productCards.forEach(function (card) {
+    var swatches = card.querySelectorAll('.swatch');
+    var mainImage = card.querySelector('.main-image');
+    var variantIdInput = card.querySelector('.variant-id');
+    swatches.forEach(function (swatch) {
+      swatch.addEventListener('click', function () {
+        var variantId = swatch.getAttribute('data-variant-id');
+        var variantImage = swatch.getAttribute('data-variant-image');
+        mainImage.setAttribute('src', variantImage);
+        variantIdInput.setAttribute('value', variantId);
+      });
+    });
+  });
+
   // slider para value props home
   //swiperValueprops();
 });

@@ -18,11 +18,13 @@
           <div class="product_card">
             <a href="{{ product.url }}">
               <div class="product-image">
-                <img class="show-image-card {% if product.media[1] != blank %}first-image{% else %}zoom-image{% endif %}" src="{{ product.featured_image | product_img_url: 'medium' }}" alt="">
+                <img class="show-image-card main-image zoom-image" src="{{ product.featured_image | product_img_url: 'medium' }}" alt="">
+
+              {% comment %} {% if product.media[1] != blank %}first-image{% else %}zoom-image{% endif %} {% endcomment %}
                 
-                {% if product.media[1] %}
+                {% comment %} {% if product.media[1] and product.variant.id == blank %}
                   <img class="show-image-card second-image" src="{{ product.media[1] | product_img_url: 'medium' }}" alt="">
-                {% endif %}                
+                {% endif %}                 {% endcomment %}
               
                 {% if product.available == false %}               
                   <p class="tag_sold-out">Sold Out</p>                
@@ -45,12 +47,31 @@
                     {% endif %}  
                   {% endif %}
                 </div>            
-              </div>            
-      
-              <h2>{{ product.title }}</h2>
-      
-              <p>{{ product.price | money_with_currency }}</p>                 
-            </a>
+              </div>  
+            </a>  
+            <div class="content_color-variant">
+              {% if product.variants.size > 1 %}
+                <div class="swatches">
+                  {% for variant in product.variants %}
+                    <div class="swatch" data-variant-id="{{ variant.id }}" data-variant-image="{{ variant.featured_image.src | product_img_url: 'medium' }}">
+                      <p class="item_color-variant" style="background-color: {{ variant.title }};">{{ variant.title }}</p> 
+                    </div>                                    
+                  {% endfor %}
+                </div>  
+              {% endif %}              
+            </div>
+            
+    
+            <h2>{{ product.title }}</h2>
+    
+            <p>{{ product.price | money_with_currency }}</p>                 
+            
+
+            {% form 'product', product %}
+              <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" class="variant-id">
+              <button type="submit">Add to cart</button>
+            {% endform %}
+
            </div>
 
         {% endfor %}
