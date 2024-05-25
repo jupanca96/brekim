@@ -11,13 +11,53 @@
     },
     "product-grid": {
       "type": "main-collection-product-grid2",
+      "blocks": {
+        "row_Ujmbif": {
+          "type": "row",
+          "settings": {
+            "image_to_plp": "shopify:\/\/shop_images\/pexels-sozutova-13086432_1.jpg",
+            "text_plp": "Texto para PLP 1",
+            "link_plp": "shopify:\/\/collections\/automated-collection",
+            "link_text": "Texto para CTA1",
+            "position-text_plp": "center"
+          }
+        },
+        "row_qWdkeP": {
+          "type": "row",
+          "settings": {
+            "text_plp": "Texto para PLP",
+            "link_plp": "",
+            "link_text": "Texto para CTA",
+            "position-text_plp": "center"
+          }
+        },
+        "row_DAiQXQ": {
+          "type": "row",
+          "settings": {
+            "text_plp": "Texto para PLP",
+            "link_plp": "",
+            "link_text": "Texto para CTA",
+            "position-text_plp": "center"
+          }
+        },
+        "row_qenCiM": {
+          "type": "row",
+          "settings": {
+            "text_plp": "Texto para PLP",
+            "link_plp": "",
+            "link_text": "Texto para CTA",
+            "position-text_plp": "center"
+          }
+        }
+      },
+      "block_order": [
+        "row_Ujmbif",
+        "row_qWdkeP",
+        "row_DAiQXQ",
+        "row_qenCiM"
+      ],
       "settings": {
-        "products_per_page": 16,
-        "image_to_plp": "shopify:\/\/shop_images\/pexels-sozutova-13086432_1.jpg",
-        "text_plp": "Texto para PLP",
-        "link_plp": "shopify:\/\/collections\/all-products",
-        "link_text": "Texto para BOTON",
-        "position-text_plp": "bottom"
+        "products_per_page": 16
       }
     }
   },
