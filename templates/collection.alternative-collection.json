@@ -25,9 +25,10 @@
         "row_qWdkeP": {
           "type": "row",
           "settings": {
-            "text_plp": "Texto para PLP",
-            "link_plp": "",
-            "link_text": "Texto para CTA",
+            "image_to_plp": "shopify:\/\/shop_images\/pexels-shvetsa-4588065.jpg",
+            "text_plp": "Texto para PLP2",
+            "link_plp": "shopify:\/\/pages\/contact",
+            "link_text": "Texto para CTA2",
             "position-text_plp": "center"
           }
         },
