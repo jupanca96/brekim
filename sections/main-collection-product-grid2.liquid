@@ -6,7 +6,7 @@
         {% assign counter = 0 %}
         {% assign counterPlp = 0 %}
         {% for product in collection.products %}
-          {% if section.settings.show_plp == true %}
+          {% if collection.metafields.custom.show_plp == true %}
             {% assign is_mult_of_three = counter | modulo: 3 %}
             {% if is_mult_of_three == 0 %}            
               {%- for block in section.blocks -%}
@@ -113,12 +113,6 @@
         "unit": "qn",
         "label": "Productos por página",
         "default": 6
-      },
-      {
-        "type": "checkbox",
-        "id": "show_plp",
-        "label": "Show Plp",
-        "default": true
       }
     ],
   
