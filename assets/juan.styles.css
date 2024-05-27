@@ -141,7 +141,7 @@
 }
 .card_section .grilla_cards .product_card .content_color-variant {
   height: 30px;
-  margin-top: 5px;
+  margin-top: 20px;
   margin-bottom: 15px;
 }
 .card_section .grilla_cards .product_card .content_color-variant .swatches {
@@ -156,6 +156,10 @@
   font-size: 0;
   height: 30px;
   width: 30px;
+  cursor: pointer;
+}
+.card_section .grilla_cards .product_card .content_color-variant .swatches .swatch .item_color-variant_selected {
+  border: solid 5px grey;
 }
 .card_section .grilla_cards .product_card h2 {
   margin: 0;
@@ -207,7 +211,7 @@
 }
 .card_section .grilla_cards .product_card .product-image:hover .zoom-image {
   max-width: auto;
-  transform: scale(1.1);
+  transform: scale(1.07);
 }
 .card_section .grilla_cards .product_card .product-image:hover .second-image {
   opacity: 1;

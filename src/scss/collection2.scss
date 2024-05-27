@@ -61,7 +61,7 @@
             };
             .content_color-variant{
                 height: 30px;
-                margin-top: 5px;
+                margin-top: 20px;
                 margin-bottom: 15px;
                 .swatches{
                     display: flex;
@@ -75,6 +75,10 @@
                             font-size: 0;
                             height: 30px;
                             width: 30px;
+                            cursor: pointer;
+                        };
+                        .item_color-variant_selected{
+                            border: solid 5px grey;
                         }
                     }
                 }                    
@@ -131,7 +135,7 @@
             .product-image:hover{
                 .zoom-image{
                     max-width: auto;
-                    transform: scale(1.1);
+                    transform: scale(1.07);
                 };
                 .second-image {
                     opacity: 1;

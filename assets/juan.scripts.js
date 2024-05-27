@@ -289,10 +289,25 @@ document.addEventListener("DOMContentLoaded", function () {
     var swatches = card.querySelectorAll('.swatch');
     var mainImage = card.querySelector('.main-image');
     var variantIdInput = card.querySelector('.variant-id');
+    if (swatches.length > 0) {
+      var firstVariant = swatches[0];
+      var firstVariantId = firstVariant.getAttribute('data-variant-id');
+      var firstImageId = firstVariant.getAttribute('data-variant-image');
+      mainImage.setAttribute('src', firstImageId);
+      variantIdInput.setAttribute('value', firstVariantId);
+      var firstStyle = firstVariant.querySelector('.item_color-variant');
+      firstStyle.classList.add('item_color-variant_selected');
+    }
     swatches.forEach(function (swatch) {
       swatch.addEventListener('click', function () {
-        var variantId = swatch.getAttribute('data-variant-id');
         var variantImage = swatch.getAttribute('data-variant-image');
+        var variantId = swatch.getAttribute('data-variant-id');
+        var previousSelected = card.querySelector('.item_color-variant_selected');
+        if (previousSelected) {
+          previousSelected.classList.remove('item_color-variant_selected');
+        }
+        var swatchP = swatch.querySelector('.item_color-variant');
+        swatchP.classList.add('item_color-variant_selected');
         mainImage.setAttribute('src', variantImage);
         variantIdInput.setAttribute('value', variantId);
       });

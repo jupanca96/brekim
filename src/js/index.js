@@ -20,15 +20,36 @@ document.addEventListener("DOMContentLoaded", function() {
     productCards.forEach(card =>{
       const swatches = card.querySelectorAll('.swatch');
       const mainImage = card.querySelector('.main-image');
-      const variantIdInput = card.querySelector('.variant-id');
+      const variantIdInput = card.querySelector('.variant-id');   
+
+      if(swatches.length > 0) {
+        const firstVariant = swatches[0];
+        const firstVariantId = firstVariant.getAttribute('data-variant-id');
+        const firstImageId = firstVariant.getAttribute('data-variant-image');
+
+        mainImage.setAttribute('src', firstImageId);
+        variantIdInput.setAttribute('value', firstVariantId);
+
+        const firstStyle = firstVariant.querySelector('.item_color-variant');
+        firstStyle.classList.add('item_color-variant_selected');
+      }
+      
 
       swatches.forEach(swatch => {
         swatch.addEventListener('click', function() {
-          const variantId = swatch.getAttribute('data-variant-id');
           const variantImage = swatch.getAttribute('data-variant-image');
+          const variantId = swatch.getAttribute('data-variant-id');
 
-        mainImage.setAttribute('src', variantImage);
-        variantIdInput.setAttribute('value', variantId);
+          const previousSelected = card.querySelector('.item_color-variant_selected');
+          if (previousSelected){
+            previousSelected.classList.remove('item_color-variant_selected');
+          }
+
+          const swatchP = swatch.querySelector('.item_color-variant');
+          swatchP.classList.add('item_color-variant_selected');          
+
+          mainImage.setAttribute('src', variantImage);
+          variantIdInput.setAttribute('value', variantId);
         });        
       });
     });
