@@ -1,4 +1,8 @@
 <div class="card_section">
+  {% if collection.metafields.custom.info_cards != blank %}
+    <div>Si funciona el llamado al metafield</div>
+  {% endif %}
+  
   {% if collection.all_products_count > 0 %}
     {% paginate collection.products by section.settings.products_per_page %}
 
@@ -7,6 +11,11 @@
         {% assign counterPlp = 0 %}
         {% for product in collection.products %}
           {% if collection.metafields.custom.show_plp == true %}
+
+            {% for block in section.blocks %}
+              {% assign blocks_count = forloop.length %}
+            {% endfor %}       
+                 
             {% assign is_mult_of_three = counter | modulo: 3 %}
             {% if is_mult_of_three == 0 %}            
               {%- for block in section.blocks -%}
@@ -23,8 +32,8 @@
 
             {% assign counter = counter | plus: 1 %}
 
-            {% assign counterPlpMult = counterPlp | modulo: 4 %}
-            {% if counterPlpMult == 0 %}
+            {% comment %} {% assign counterPlpMult = counterPlp | modulo: 4 %} {% endcomment %}
+            {% if counterPlp == {{ blocks_count }} %}
               {% assign counterPlp = 0 %}
             {% endif %}
           {% endif %}
