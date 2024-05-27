@@ -44,6 +44,7 @@
         },
         "row_qenCiM": {
           "type": "row",
+          "disabled": true,
           "settings": {
             "image_to_plp": "shopify:\/\/shop_images\/pexels-pamela-pagnin-15117010-20192264.jpg",
             "text_plp": "Texto para PLP4",
