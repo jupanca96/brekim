@@ -1,8 +1,4 @@
 <div class="card_section">
-  {% if collection.metafields.custom.info_cards != blank %}
-    <div>Si funciona el llamado al metafield</div>
-  {% endif %}
-  
   {% if collection.all_products_count > 0 %}
     {% paginate collection.products by section.settings.products_per_page %}
 
@@ -11,26 +7,46 @@
         {% assign counterPlp = 0 %}
         {% for product in collection.products %}
           {% if collection.metafields.custom.show_plp == true %}       
-            {% assign blocks_count = section.blocks | size %}     
+            {% assign blocks_count = section.blocks | size %}  
+            {% assign metaInfo = collection.metafields.custom.info_cards.value %}   
             {% assign is_mult_of_three = counter | modulo: 3 %}
-            {% if is_mult_of_three == 0 %}            
-              {%- for block in section.blocks -%}
-                {% if forloop.index0 == counterPlp %}
-                  <div class="info-card">
-                    <img src="{{ block.settings.image_to_plp | product_img_url: 'medium' }}" alt="">
-                    <p class="{% if block.settings.position-text_plp == "top" %}top_title{% elsif block.settings.position-text_plp == "center" %}center_title{% else %}bottom_title{% endif %}">{{section.blocks.text_plp}}</p>
-                    <a class="{% if block.settings.position-text_plp == "top" %}top_cta{% elsif block.settings.position-text_plp == "center" %}center_cta{% else %}bottom_cta{% endif %}" href="{{block.settings.link_plp}}">{{block.settings.link_text}}</a>
-                  </div>
-                {% endif %}
-              {%- endfor -%}
-              {% assign counterPlp = counterPlp | plus: 1 %}
+            {% if is_mult_of_three == 0 %} 
+              {% if metaInfo != blank %}
+                {% for item in metaInfo %}
+                  {% assign sizeMetaInfo = forloop.length %}
+                  {% if forloop.index == counterPlp %}
+                    <div class="info-card">
+                      <img src="{{ item.image_plp | image_url: width: 300, height: 550 }}" alt="">
+                      <p class="{% if item.position_text_in_info_card == "1" %}top_title{% elsif item.position_text_in_info_card == "2" %}center_title{% else %}bottom_title{% endif %}">{{item.text_plp}}</p>
+                      <a class="{% if item.position_text_in_info_card == "1" %}top_cta{% elsif item.position_text_in_info_card == "2" %}center_cta{% else %}bottom_cta{% endif %}" href="{{item.url_info_card}}">{{item.texto_cta_info_card}}</a>
+                    </div>
+                  {% endif %}
+                 {% endfor %}
+                 {% assign counterPlp = counterPlp | plus: 1 %}
+              {% else %}           
+                {%- for block in section.blocks -%}
+                  {% if forloop.index0 == counterPlp %}
+                    <div class="info-card">
+                      <img src="{{ block.settings.image_to_plp | image_url: width: 300, height: 550 }}" alt="">
+                      <p class="{% if block.settings.position-text_plp == "top" %}top_title{% elsif block.settings.position-text_plp == "center" %}center_title{% else %}bottom_title{% endif %}">{{section.blocks.text_plp}}</p>
+                      <a class="{% if block.settings.position-text_plp == "top" %}top_cta{% elsif block.settings.position-text_plp == "center" %}center_cta{% else %}bottom_cta{% endif %}" href="{{block.settings.link_plp}}">{{block.settings.link_text}}</a>
+                    </div>
+                  {% endif %}
+                {%- endfor -%}
+                {% assign counterPlp = counterPlp | plus: 1 %}
+              {% endif %}
             {% endif %}
 
             {% assign counter = counter | plus: 1 %}
 
-            {% comment %} {% assign counterPlpMult = counterPlp | modulo: 4 %} {% endcomment %}
-            {% if counterPlp == blocks_count %}
-              {% assign counterPlp = 0 %}
+            {% if metaInfo != blank %}
+              {% if counterPlp == sizeMetaInfo %}
+                {% assign counterPlp = 0 %}
+              {% endif %}
+            {% else %}
+              {% if counterPlp == blocks_count %}
+                {% assign counterPlp = 0 %}
+              {% endif %}
             {% endif %}
           {% endif %}
           <div class="product_card">
