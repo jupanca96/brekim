@@ -10,12 +10,8 @@
         {% assign counter = 0 %}
         {% assign counterPlp = 0 %}
         {% for product in collection.products %}
-          {% if collection.metafields.custom.show_plp == true %}
-
-            {% for block in section.blocks %}
-              {% assign blocks_count = forloop.length %}
-            {% endfor %}       
-                 
+          {% if collection.metafields.custom.show_plp == true %}       
+            {% assign blocks_count = section.blocks | size %}     
             {% assign is_mult_of_three = counter | modulo: 3 %}
             {% if is_mult_of_three == 0 %}            
               {%- for block in section.blocks -%}
@@ -33,7 +29,7 @@
             {% assign counter = counter | plus: 1 %}
 
             {% comment %} {% assign counterPlpMult = counterPlp | modulo: 4 %} {% endcomment %}
-            {% if counterPlp == 4 %}
+            {% if counterPlp == blocks_count %}
               {% assign counterPlp = 0 %}
             {% endif %}
           {% endif %}
