@@ -17,8 +17,8 @@
                   {% if forloop.index0 == counterPlp %}
                     <div class="info-card">
                       <img src="{{ item.image_plp | image_url: width: 300, height: 550 }}" alt="">
-                      <p class="{% if item.position_text_in_info_card == "1" %}top_title{% elsif item.position_text_in_info_card == "2" %}center_title{% else %}bottom_title{% endif %}">{{item.text_plp}}</p>
-                      <a class="{% if item.position_text_in_info_card == "1" %}top_cta{% elsif item.position_text_in_info_card == "2" %}center_cta{% else %}bottom_cta{% endif %}" href="{{item.url_info_card}}">{{item.texto_cta_info_card}}</a>
+                      <p class="{% if item.position_text_in_info_card == 1 %}top_title{% elsif item.position_text_in_info_card == 2 %}center_title{% else %}bottom_title{% endif %}">{{item.text_plp}}</p>
+                      <a class="{% if item.position_text_in_info_card == 1 %}top_cta{% elsif item.position_text_in_info_card == 2 %}center_cta{% else %}bottom_cta{% endif %}" href="{{item.url_info_card}}">{{item.texto_cta_info_card}}</a>
                     </div>
                   {% endif %}
                  {% endfor %}
