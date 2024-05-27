@@ -33,7 +33,7 @@
             {% assign counter = counter | plus: 1 %}
 
             {% comment %} {% assign counterPlpMult = counterPlp | modulo: 4 %} {% endcomment %}
-            {% if counterPlp == {{ blocks_count }} %}
+            {% if counterPlp == 4 %}
               {% assign counterPlp = 0 %}
             {% endif %}
           {% endif %}
