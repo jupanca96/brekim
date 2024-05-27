@@ -14,7 +14,7 @@
               {% if metaInfo != blank %}
                 {% for item in metaInfo %}
                   {% assign sizeMetaInfo = forloop.length %}
-                  {% if forloop.index == counterPlp %}
+                  {% if forloop.index0 == counterPlp %}
                     <div class="info-card">
                       <img src="{{ item.image_plp | image_url: width: 300, height: 550 }}" alt="">
                       <p class="{% if item.position_text_in_info_card == "1" %}top_title{% elsif item.position_text_in_info_card == "2" %}center_title{% else %}bottom_title{% endif %}">{{item.text_plp}}</p>
