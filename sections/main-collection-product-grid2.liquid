@@ -28,7 +28,7 @@
                   {% if forloop.index0 == counterPlp %}
                     <div class="info-card">
                       <img src="{{ block.settings.image_to_plp | image_url: width: 300, height: 550 }}" alt="">
-                      <p class="{% if block.settings.position-text_plp == "top" %}top_title{% elsif block.settings.position-text_plp == "center" %}center_title{% else %}bottom_title{% endif %}">{{section.blocks.text_plp}}</p>
+                      <p class="{% if block.settings.position-text_plp == "top" %}top_title{% elsif block.settings.position-text_plp == "center" %}center_title{% else %}bottom_title{% endif %}">{{block.settings.text_plp}}</p>
                       <a class="{% if block.settings.position-text_plp == "top" %}top_cta{% elsif block.settings.position-text_plp == "center" %}center_cta{% else %}bottom_cta{% endif %}" href="{{block.settings.link_plp}}">{{block.settings.link_text}}</a>
                     </div>
                   {% endif %}
