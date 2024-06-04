@@ -86,10 +86,15 @@
             <div class="content_color-variant">
               {% if product.variants.size > 1 %}
                 <div class="swatches">
+                  {% assign shown_colors = "" %}
                   {% for variant in product.variants %}
-                    <div class="swatch" data-variant-id="{{ variant.id }}" data-variant-image="{{ variant.featured_image.src | product_img_url: 'medium' }}">
-                      <p class="item_color-variant" style="background-color: {{ variant.title }};">{{ variant.title }}</p> 
-                    </div>                                    
+                    {% assign color = variant.option1 %}                    
+                    {% unless shown_colors contains color %}
+                      <div class="swatch" data-variant-color="{{ variant.option1 }}" data-variant-id="{{ variant.id }}" data-variant-image="{{ variant.featured_image.src | product_img_url: 'medium' }}">
+                        <p class="item_color-variant" style="background-image: url('{{ variant.metafields.custom.textura | img_url: '200x200' }}');">{{ variant.title }}</p> 
+                      </div>
+                      {% assign shown_colors = shown_colors | append: color | append: "," %}
+                    {% endunless %}                                                  
                   {% endfor %}
                 </div>  
               {% endif %}              
@@ -103,8 +108,25 @@
 
             {% form 'product', product %}
               <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" class="variant-id">
-              <button type="submit">Add to cart</button>
+              <div class="contenedor_add-cart">
+                <button class="buttonCart" type="button">Add to cart</button>
+                <div class="swatches-size">
+                  {% for variant in product.variants %}
+                    <div class="swatch-size" data-variant2-id="{{ variant.id }}" data-variant2-color="{{ variant.option1 }}" data-variant2-size="{{ variant.option2 }}">
+                      <button type="submit" class="item_size-variant" {% if variant.available == false %}style="opacity: 0.5; cursor: not-allowed;" disabled{% endif %}> {{ variant.option2 }}</button>
+                    </div>                  
+                  {% endfor %}
+                </div>
+              </div>
             {% endform %}
+
+            {% comment %} <div class="swatches-size">
+              {% for variant in product.variants %}
+                <div class="swatch-size" data-variant2-id="{{ variant.id }}" data-variant2-color="{{ variant.option1 }}" data-variant2-size="{{ variant.option2 }}">
+                  <p class="item_size-variant">{{ variant.option2 }}</p>
+                </div>
+              {% endfor %}
+            </div> {% endcomment %}
 
            </div>
 

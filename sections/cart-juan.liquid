@@ -1,0 +1,53 @@
+<div class="cart-drawer_hide">
+
+  <header>    
+    <img class="icon_exit-cart" src="https://cdn.shopify.com/s/files/1/0866/2479/6980/files/pngegg.png?v=1717532393" alt="">
+    <h2>Your cart ({{ cart.item_count }})</h2>
+  </header>
+
+  <main>
+    {% if cart.empty? %}
+      <p>Your cart is empty</p>
+    {% else %}
+      {% for item in cart.items %}
+        <div class="content-card_cart">
+          <div class="img_product-in-card-cart">
+            <img src="{{item.image | img_url }}" alt="">   
+          </div>
+          <div class="info_product-in-card-cart">
+            <p>{{ item.final_line_price | money }}</p>
+            <h3>{{ item.product.title }}</h3>
+            {% if item.product.variants.size > 1 %}
+              <p>{{ item.variant.title }}</p>
+            {% endif %}
+            <div class="content_qty-remove">
+              <p> Selected quantity: {{ item.quantity }}</p>
+              <a href="{{ item.url_to_remove }}"><img src="https://cdn.shopify.com/s/files/1/0866/2479/6980/files/trash.png?v=1717534976" alt=""></a>              
+            </div>            
+            
+          </div>
+        </div>
+        {% comment %} <input name="quantity" value="{{ item.quantity }}"> {% endcomment %}
+      {% endfor %}     
+    {% endif %}
+  </main>
+
+  <footer>
+    {% form 'cart', cart %}
+      <div>
+        <p>Subtotal</p>
+        <p>{{ cart.total_price | money }}</p>
+      </div>
+      <button type="submit" name="checkout">Checkout</button>
+    {% endform %}
+  </footer>
+</div>
+
+{% schema %}
+{
+    "name": "Cart Juan",
+    "settings": [
+        
+        ]
+}
+{% endschema %}

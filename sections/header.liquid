@@ -317,7 +317,10 @@
         {%- endcase -%}
       {%- endfor -%}
 
-      <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
+      <img class="img_cart" src="https://cdn.shopify.com/s/files/1/0866/2479/6980/files/pngwing.com.png?v=1717517064" alt="">
+      
+
+      {% comment %} <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
         {%- liquid
           if cart == empty
             render 'icon-cart-empty'
@@ -334,7 +337,7 @@
             <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
           </div>
         {%- endif -%}
-      </a>
+      </a> {% endcomment %}
     </div>
   </header>
 </{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}>
