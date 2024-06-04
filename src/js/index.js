@@ -134,6 +134,17 @@ document.addEventListener("DOMContentLoaded", function() {
         event.stopPropagation();
       });
 
+    //Cerrar carrito con flecha
+    const arrowClose = document.querySelector(".icon_exit-cart");
+    arrowClose.addEventListener('click', function(event){
+      const sideCart = document.querySelector(".cart-drawer");
+        if(sideCart){
+          sideCart.classList.remove('cart-drawer');
+          sideCart.classList.add('cart-drawer_hide');
+        }               
+      });
+    
+
     //Cerrar carrito dando clic afuera de el
       document.addEventListener('click', function(event){ 
         const sideCart = document.querySelector(".cart-drawer");
