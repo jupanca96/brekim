@@ -4,10 +4,10 @@
   cursor: pointer;
 }
 
-.cart-drawer {
+.cart-drawer_hide{
   position: fixed;
   top: 0;
-  right: 0;
+  right: -1000px;
   opacity: 1;
   width: 30%;
   height: 100vh;
@@ -16,7 +16,9 @@
   display: flex;  
   flex-direction: column;
   padding: 24px;
-  transition: left 0s 0.2s, opacity 0.2s;
+  transition: all 0.5s;
+  
+  
   header{
     display: flex;
     flex-direction: row;
@@ -93,6 +95,6 @@
   }
 }
 
-.cart-drawer_hide{
-  display: none;
+.cart-drawer{
+  transform: translate(-1000px, 0);
 }

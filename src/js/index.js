@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
       buttonCart.addEventListener('click', function(event){
         const sideCart = document.querySelector(".cart-drawer_hide");       
-        sideCart.classList.remove('cart-drawer_hide');
+        // sideCart.classList.remove('cart-drawer_hide');
         sideCart.classList.add('cart-drawer');  
         
         event.stopPropagation();
@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function() {
       const sideCart = document.querySelector(".cart-drawer");
         if(sideCart){
           sideCart.classList.remove('cart-drawer');
-          sideCart.classList.add('cart-drawer_hide');
+          //sideCart.classList.add('cart-drawer_hide');
         }               
       });
     
@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const sideCart = document.querySelector(".cart-drawer");
         if(sideCart && !sideCart.contains(event.target)){
           sideCart.classList.remove('cart-drawer');
-          sideCart.classList.add('cart-drawer_hide');
+          //sideCart.classList.add('cart-drawer_hide');
         }               
       });    
 

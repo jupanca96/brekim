@@ -336,10 +336,10 @@
   cursor: pointer;
 }
 
-.cart-drawer {
+.cart-drawer_hide {
   position: fixed;
   top: 0;
-  right: 0;
+  right: -1000px;
   opacity: 1;
   width: 30%;
   height: 100vh;
@@ -348,70 +348,70 @@
   display: flex;
   flex-direction: column;
   padding: 24px;
-  transition: left 0s 0.2s, opacity 0.2s;
+  transition: all 0.5s;
 }
-.cart-drawer header {
+.cart-drawer_hide header {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-.cart-drawer header .icon_exit-cart {
+.cart-drawer_hide header .icon_exit-cart {
   height: 20px;
   width: 20px;
   cursor: pointer;
   margin-right: 20px;
 }
-.cart-drawer header h2 {
+.cart-drawer_hide header h2 {
   margin: 0;
 }
-.cart-drawer main .content-card_cart {
+.cart-drawer_hide main .content-card_cart {
   display: flex;
   flex-direction: row;
   margin-top: 20px;
 }
-.cart-drawer main .content-card_cart .img_product-in-card-cart img {
+.cart-drawer_hide main .content-card_cart .img_product-in-card-cart img {
   height: 112.5px;
   width: 104.25px;
 }
-.cart-drawer main .content-card_cart .info_product-in-card-cart {
+.cart-drawer_hide main .content-card_cart .info_product-in-card-cart {
   display: flex;
   flex-direction: column;
 }
-.cart-drawer main .content-card_cart .info_product-in-card-cart p {
+.cart-drawer_hide main .content-card_cart .info_product-in-card-cart p {
   margin: 0;
 }
-.cart-drawer main .content-card_cart .info_product-in-card-cart h3 {
+.cart-drawer_hide main .content-card_cart .info_product-in-card-cart h3 {
   margin: 0;
 }
-.cart-drawer main .content-card_cart .info_product-in-card-cart .content_qty-remove {
+.cart-drawer_hide main .content-card_cart .info_product-in-card-cart .content_qty-remove {
   display: flex;
   flex-direction: row;
 }
-.cart-drawer main .content-card_cart .info_product-in-card-cart .content_qty-remove a img {
+.cart-drawer_hide main .content-card_cart .info_product-in-card-cart .content_qty-remove a img {
   height: 15px;
   width: 15px;
   right: 0;
 }
-.cart-drawer footer {
+.cart-drawer_hide footer {
   height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   padding: 10px;
 }
-.cart-drawer footer form {
+.cart-drawer_hide footer form {
   width: 100%;
 }
-.cart-drawer footer form div {
+.cart-drawer_hide footer form div {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
-.cart-drawer footer form div p {
+.cart-drawer_hide footer form div p {
   margin: 0;
 }
-.cart-drawer footer form button {
+.cart-drawer_hide footer form button {
   width: 100%;
   height: 40px;
   color: white;
@@ -419,6 +419,6 @@
   cursor: pointer;
 }
 
-.cart-drawer_hide {
-  display: none;
+.cart-drawer {
+  transform: translate(-1000px, 0);
 }
