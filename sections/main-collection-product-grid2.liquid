@@ -106,19 +106,29 @@
             <p>{{ product.price | money_with_currency }}</p>                 
             
 
+            {% if product.variants.size > 1 %}
+              {% form 'product', product %}
+                <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" class="variant-id">
+                <div class="contenedor_add-cart">
+                  <button class="buttonCart" type="button">Add to cart</button>
+                  <div class="swatches-size">
+                    {% for variant in product.variants %}
+                      <div class="swatch-size" data-variant2-id="{{ variant.id }}" data-variant2-color="{{ variant.option1 }}" data-variant2-size="{{ variant.option2 }}">
+                        <button type="submit" class="item_size-variant" {% if variant.available == false %}style="opacity: 0.5; cursor: not-allowed;" disabled{% endif %}> {{ variant.option2 }}</button>
+                      </div>                  
+                    {% endfor %}
+                  </div>
+                </div>
+              {% endform %}
+            {% else %}
             {% form 'product', product %}
               <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" class="variant-id">
               <div class="contenedor_add-cart">
-                <button class="buttonCart" type="button">Add to cart</button>
-                <div class="swatches-size">
-                  {% for variant in product.variants %}
-                    <div class="swatch-size" data-variant2-id="{{ variant.id }}" data-variant2-color="{{ variant.option1 }}" data-variant2-size="{{ variant.option2 }}">
-                      <button type="submit" class="item_size-variant" {% if variant.available == false %}style="opacity: 0.5; cursor: not-allowed;" disabled{% endif %}> {{ variant.option2 }}</button>
-                    </div>                  
-                  {% endfor %}
-                </div>
+                <button class="buttonCart" type="submit">Add to cart</button>
               </div>
             {% endform %}
+            {% endif %}
+            
 
             {% comment %} <div class="swatches-size">
               {% for variant in product.variants %}
