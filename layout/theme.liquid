@@ -284,8 +284,6 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
-    
-    <script src="{{  'juan.scripts.js' | asset_url }}"></script>
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
@@ -356,6 +354,7 @@
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
+    <script src="{{ 'juan.scripts.js' | asset_url }}" defer="defer"></script>
     {% section 'cart-juan' %}
   </body>
 </html>
