@@ -21,14 +21,20 @@ var apiCarrito = function apiCarrito() {
   var buttonCart = document.querySelector(".img_cart");
   buttonCart.addEventListener('click', /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(e) {
+      var cart;
       return _regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return updateCartDrawer();
+            return obtenerDatosCarrito();
           case 2:
-            openCart(e);
-          case 3:
+            cart = _context.sent;
+            _context.next = 5;
+            return updateCartDrawer(cart);
+          case 5:
+            _context.next = 7;
+            return openCart(e);
+          case 7:
           case "end":
             return _context.stop();
         }
@@ -45,7 +51,7 @@ var apiCarrito = function apiCarrito() {
   btnAddCart.forEach(function (btn) {
     btn.addEventListener('click', /*#__PURE__*/function () {
       var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(e) {
-        var variantId;
+        var variantId, cart;
         return _regeneratorRuntime().wrap(function _callee2$(_context2) {
           while (1) switch (_context2.prev = _context2.next) {
             case 0:
@@ -54,11 +60,15 @@ var apiCarrito = function apiCarrito() {
               return addElementCart(variantId);
             case 3:
               _context2.next = 5;
-              return updateCartDrawer();
+              return obtenerDatosCarrito();
             case 5:
-              //Open cart
-              openCart(e);
-            case 6:
+              cart = _context2.sent;
+              _context2.next = 8;
+              return updateCartDrawer(cart);
+            case 8:
+              _context2.next = 10;
+              return openCart(e);
+            case 10:
             case "end":
               return _context2.stop();
           }
@@ -74,7 +84,18 @@ var apiCarrito = function apiCarrito() {
 };
 function addElementCart(_x3) {
   return _addElementCart.apply(this, arguments);
-}
+} // async function (){
+//     console.log('Agregando o eliminando')
+//     await fetch('/cart.js')
+//     .then(response => response.json())
+//     .then(cart => {
+//         console.log(cart);
+//         obtenerCantidadDeProductos(cart);
+//     })
+//     .catch(error => {
+//         console.error('Error al obtener el carrito:', error);
+//     });
+// }
 function _addElementCart() {
   _addElementCart = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(idAgregar) {
     var formData;
@@ -105,138 +126,199 @@ function _addElementCart() {
   }));
   return _addElementCart.apply(this, arguments);
 }
-function updateCartDrawer() {
+function updateCartDrawer(_x4) {
   return _updateCartDrawer.apply(this, arguments);
 }
 function _updateCartDrawer() {
-  _updateCartDrawer = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
-    return _regeneratorRuntime().wrap(function _callee4$(_context4) {
-      while (1) switch (_context4.prev = _context4.next) {
+  _updateCartDrawer = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee7(cart) {
+    var quantityInCart, priceInCart, mainSideCart, items, textEmptyCart;
+    return _regeneratorRuntime().wrap(function _callee7$(_context7) {
+      while (1) switch (_context7.prev = _context7.next) {
         case 0:
-          console.log('Agregando o eliminando');
-          _context4.next = 3;
-          return fetch('/cart.js').then(function (response) {
-            return response.json();
-          }).then(function (cart) {
-            console.log(cart);
-            obtenerCantidadDeProductos(cart);
-          })["catch"](function (error) {
-            console.error('Error al obtener el carrito:', error);
+          //Actualizar cantidad total carrito
+          quantityInCart = cart.item_count;
+          priceInCart = cart.total_price; //Eliminar texto empty
+          mainSideCart = document.querySelector('.main-sideCart');
+          while (mainSideCart.firstChild) {
+            mainSideCart.removeChild(mainSideCart.firstChild);
+          }
+
+          //Actualziar items
+          items = cart.items;
+          items.forEach(function (item) {
+            var contentCardCart = document.createElement('div');
+            contentCardCart.classList.add('content-card_cart');
+
+            //Insertar imagen
+            var img = document.createElement('img');
+            img.src = "".concat(item.featured_image.url);
+            img.alt = "".concat(item.featured_image.alt);
+            var divImg = document.createElement('div');
+            divImg.classList.add('img_product-in-card-cart');
+            divImg.appendChild(img);
+            contentCardCart.appendChild(divImg);
+
+            //Insertar precio, titulo, titulo variante, cantidad
+
+            var divInfo = document.createElement('div');
+            divInfo.classList.add('info_product-in-card-cart');
+            var insertPrice = document.createElement('p');
+            insertPrice.classList.add('price-item-cart');
+            insertPrice.textContent = "$".concat(item.line_price);
+            var insertTitle = document.createElement('h3');
+            insertTitle.textContent = "".concat(item.product_title);
+            var insertVariant = document.createElement('p');
+            if (item.variant_title) {
+              insertVariant.textContent = "".concat(item.variant_title);
+            }
+            divInfo.appendChild(insertPrice);
+            divInfo.appendChild(insertTitle);
+            if (item.variant_title) {
+              divInfo.appendChild(insertVariant);
+            }
+
+            //Div QTY
+            var divQtyandDelete = document.createElement('div');
+            divQtyandDelete.classList.add('content_qty-remove');
+            var insertQty = document.createElement('div');
+            insertQty.classList.add('quantity-item-cart');
+            var inputQty = document.createElement('input');
+            inputQty.type = "number";
+            inputQty.value = "".concat(item.quantity);
+            inputQty.min = "0";
+            inputQty.readOnly = true;
+            var btnMenos = document.createElement('button');
+            btnMenos.classList.add('menos');
+            btnMenos.textContent = "-";
+            btnMenos.addEventListener('click', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
+              return _regeneratorRuntime().wrap(function _callee4$(_context4) {
+                while (1) switch (_context4.prev = _context4.next) {
+                  case 0:
+                    if (!(inputQty.value > 1)) {
+                      _context4.next = 7;
+                      break;
+                    }
+                    inputQty.value = parseInt(inputQty.value) - 1;
+                    _context4.next = 4;
+                    return actualizarCantidad(item.key, inputQty.value);
+                  case 4:
+                    return _context4.abrupt("return");
+                  case 7:
+                    return _context4.abrupt("return");
+                  case 8:
+                  case "end":
+                    return _context4.stop();
+                }
+              }, _callee4);
+            })));
+            var btnMas = document.createElement('button');
+            btnMas.classList.add('mas');
+            btnMas.textContent = "+";
+            btnMas.addEventListener('click', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5() {
+              return _regeneratorRuntime().wrap(function _callee5$(_context5) {
+                while (1) switch (_context5.prev = _context5.next) {
+                  case 0:
+                    inputQty.value = parseInt(inputQty.value) + 1;
+                    _context5.next = 3;
+                    return actualizarCantidad(item.key, inputQty.value);
+                  case 3:
+                  case "end":
+                    return _context5.stop();
+                }
+              }, _callee5);
+            })));
+            insertQty.appendChild(btnMenos);
+            insertQty.appendChild(inputQty);
+            insertQty.appendChild(btnMas);
+            var insertDelete = document.createElement('button');
+            insertDelete.addEventListener('click', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee6() {
+              return _regeneratorRuntime().wrap(function _callee6$(_context6) {
+                while (1) switch (_context6.prev = _context6.next) {
+                  case 0:
+                    _context6.next = 2;
+                    return eliminarProducto(item.key);
+                  case 2:
+                  case "end":
+                    return _context6.stop();
+                }
+              }, _callee6);
+            })));
+            var imgDelete = document.createElement('img');
+            imgDelete.src = "https://cdn.shopify.com/s/files/1/0866/2479/6980/files/trash.png?v=1717534976";
+            insertDelete.appendChild(imgDelete);
+            divQtyandDelete.appendChild(insertQty);
+            divQtyandDelete.appendChild(insertDelete);
+            divInfo.appendChild(divQtyandDelete);
+            contentCardCart.appendChild(divInfo);
+            mainSideCart.appendChild(contentCardCart);
+
+            //Creamos el footer
+
+            crearFooter(priceInCart);
           });
-        case 3:
+
+          //Agregar texto empty si no hay productos
+          if (!(quantityInCart === 0)) {
+            _context7.next = 12;
+            break;
+          }
+          textEmptyCart = document.createElement('p');
+          textEmptyCart.classList.add('text-empty_cart');
+          textEmptyCart.textContent = 'Your cart is empty';
+          mainSideCart.appendChild(textEmptyCart);
+
+          //actualizarPrecioTotalCarrito(cart);
+          return _context7.abrupt("return");
+        case 12:
         case "end":
-          return _context4.stop();
+          return _context7.stop();
       }
-    }, _callee4);
+    }, _callee7);
   }));
   return _updateCartDrawer.apply(this, arguments);
 }
-function obtenerCantidadDeProductos(cart) {
-  //Actualizar cantidad total carrito
-  var cartCount = document.querySelector('.cart-count');
-  var quantityInCart = cart.item_count;
-  cartCount.textContent = "You cart (".concat(quantityInCart, ")");
-
-  //Eliminar texto empty
-  var mainSideCart = document.querySelector('.main-sideCart');
-  while (mainSideCart.firstChild) {
-    mainSideCart.removeChild(mainSideCart.firstChild);
-  }
-
-  //Agregar texto empty si no hay productos
-
-  if (quantityInCart === 0) {
-    var textEmptyCart = document.createElement('p');
-    textEmptyCart.classList.add('text-empty_cart');
-    textEmptyCart.textContent = 'Your cart is empty';
-    mainSideCart.appendChild(textEmptyCart);
-    actualizarPrecioTotalCarrito(cart);
-    return;
-  }
-
-  //Actualziar items
-  var items = cart.items;
-  items.forEach(function (item) {
-    var contentCardCart = document.createElement('div');
-    contentCardCart.classList.add('content-card_cart');
-
-    //Insertar imagen
-    var img = document.createElement('img');
-    img.src = "".concat(item.featured_image.url);
-    img.alt = "".concat(item.featured_image.alt);
-    var divImg = document.createElement('div');
-    divImg.classList.add('img_product-in-card-cart');
-    divImg.appendChild(img);
-    contentCardCart.appendChild(divImg);
-
-    //Insertar precio, titulo, titulo variante, cantidad
-
-    var divInfo = document.createElement('div');
-    divInfo.classList.add('info_product-in-card-cart');
-    var insertPrice = document.createElement('p');
-    insertPrice.classList.add('price-item-cart');
-    insertPrice.textContent = "$".concat(item.line_price);
-    var insertTitle = document.createElement('h3');
-    insertTitle.textContent = "".concat(item.product_title);
-    var insertVariant = document.createElement('p');
-    if (item.variant_title) {
-      insertVariant.textContent = "".concat(item.variant_title);
-    } else {
-      console.log("No es variante1");
+function crearFooter(priceInCart) {
+  //Eliminar footer
+  var checkoutContent = document.querySelector('.checkout');
+  if (checkoutContent) {
+    while (checkoutContent.firstChild) {
+      checkoutContent.removeChild(checkoutContent.firstChild);
     }
-    divInfo.appendChild(insertPrice);
-    divInfo.appendChild(insertTitle);
-    if (item.variant_title) {
-      divInfo.appendChild(insertVariant);
-    } else {
-      console.log("No es variante2");
-    }
-
-    //Div QTY
-    var divQtyandDelete = document.createElement('div');
-    divQtyandDelete.classList.add('content_qty-remove');
-    var insertQty = document.createElement('p');
-    insertQty.classList.add('quantity-item-cart');
-    insertQty.textContent = "Selected quantity: ".concat(item.quantity);
-    var insertDelete = document.createElement('button');
-    insertDelete.addEventListener('click', function () {
-      eliminarProducto(item.key);
-      //updateCartDrawer();
-    });
-    var imgDelete = document.createElement('img');
-    imgDelete.src = "https://cdn.shopify.com/s/files/1/0866/2479/6980/files/trash.png?v=1717534976";
-    insertDelete.appendChild(imgDelete);
-    divQtyandDelete.appendChild(insertQty);
-    divQtyandDelete.appendChild(insertDelete);
-    divInfo.appendChild(divQtyandDelete);
-    contentCardCart.appendChild(divInfo);
-    mainSideCart.appendChild(contentCardCart);
-  });
-
-  //Actualizar precio total carrito
-  actualizarPrecioTotalCarrito(cart);
+  }
+  var divSubtotal = document.createElement('div');
+  var textSubtotal = document.createElement('p');
+  textSubtotal.textContent = "Subtotal";
+  var priceSubtotal = document.createElement('p');
+  priceSubtotal.classList.add('text_subtotal');
+  priceSubtotal.textContent = priceInCart;
+  divSubtotal.appendChild(textSubtotal);
+  divSubtotal.appendChild(priceSubtotal);
+  var btnCheckout = document.createElement('button');
+  btnCheckout.type = 'submit';
+  btnCheckout.name = 'checkout';
+  btnCheckout.textContent = "Checkout";
+  checkoutContent.appendChild(divSubtotal);
+  checkoutContent.appendChild(btnCheckout);
 }
 function actualizarPrecioTotalCarrito(cart) {
-  console.log('actualizando precio total');
   var cartPrice = document.querySelector('.text_subtotal');
   var priceInCart = cart.total_price;
   cartPrice.textContent = "$".concat(priceInCart);
 }
-function eliminarProducto(_x4) {
-  return _eliminarProducto.apply(this, arguments);
+function actualizarCantidad(_x5, _x6) {
+  return _actualizarCantidad.apply(this, arguments);
 }
-function _eliminarProducto() {
-  _eliminarProducto = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5(idModificar) {
-    var data;
-    return _regeneratorRuntime().wrap(function _callee5$(_context5) {
-      while (1) switch (_context5.prev = _context5.next) {
+function _actualizarCantidad() {
+  _actualizarCantidad = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee8(idActualizar, qty) {
+    var data, cart;
+    return _regeneratorRuntime().wrap(function _callee8$(_context8) {
+      while (1) switch (_context8.prev = _context8.next) {
         case 0:
-          console.log(idModificar);
           data = {
-            "id": idModificar,
-            "quantity": 0
+            "id": idActualizar,
+            "quantity": qty
           };
-          _context5.next = 4;
+          _context8.next = 3;
           return fetch('/cart/change.js', {
             method: 'POST',
             headers: {
@@ -244,30 +326,237 @@ function _eliminarProducto() {
             },
             body: JSON.stringify(data)
           }).then(function (response) {
-            console.log('Exito');
             return response.json();
           })["catch"](function (error) {
             console.error(error);
           });
-        case 4:
-          _context5.next = 6;
-          return updateCartDrawer();
-        case 6:
+        case 3:
+          _context8.next = 5;
+          return obtenerDatosCarrito();
+        case 5:
+          cart = _context8.sent;
+          _context8.next = 8;
+          return actualizarCantidadTotal(cart);
+        case 8:
+          actualizarPrecioTotalCarrito(cart);
+        case 9:
         case "end":
-          return _context5.stop();
+          return _context8.stop();
       }
-    }, _callee5);
+    }, _callee8);
+  }));
+  return _actualizarCantidad.apply(this, arguments);
+}
+function eliminarProducto(_x7) {
+  return _eliminarProducto.apply(this, arguments);
+}
+function _eliminarProducto() {
+  _eliminarProducto = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee9(idModificar) {
+    var data, cart;
+    return _regeneratorRuntime().wrap(function _callee9$(_context9) {
+      while (1) switch (_context9.prev = _context9.next) {
+        case 0:
+          data = {
+            "id": idModificar,
+            "quantity": 0
+          };
+          _context9.next = 3;
+          return fetch('/cart/change.js', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+          }).then(function (response) {
+            return response.json();
+          })["catch"](function (error) {
+            console.error(error);
+          });
+        case 3:
+          _context9.next = 5;
+          return obtenerDatosCarrito();
+        case 5:
+          cart = _context9.sent;
+          _context9.next = 8;
+          return updateCartDrawer(cart);
+        case 8:
+          _context9.next = 10;
+          return actualizarCantidadTotal(cart);
+        case 10:
+          actualizarPrecioTotalCarrito(cart);
+          if (!(cart.item_count === 0)) {
+            _context9.next = 14;
+            break;
+          }
+          _context9.next = 14;
+          return quitarCTACheckout(cart);
+        case 14:
+          ;
+        case 15:
+        case "end":
+          return _context9.stop();
+      }
+    }, _callee9);
   }));
   return _eliminarProducto.apply(this, arguments);
 }
-function openCart(e) {
-  var allBody = document.querySelector("body");
-  var contentCart = document.querySelector(".main-container-cart_hide");
-  var sideCartView = document.querySelector(".cart-drawer_hide");
-  sideCartView.classList.add('cart-drawer');
-  contentCart.classList.add('main-container-cart');
-  allBody.style.overflow = 'hidden';
-  e.stopPropagation();
+function openCart(_x8) {
+  return _openCart.apply(this, arguments);
+}
+function _openCart() {
+  _openCart = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee11(e) {
+    var allBody, contentCart, sideCartView, btnAddUpsell;
+    return _regeneratorRuntime().wrap(function _callee11$(_context11) {
+      while (1) switch (_context11.prev = _context11.next) {
+        case 0:
+          allBody = document.querySelector("body");
+          contentCart = document.querySelector(".main-container-cart_hide");
+          sideCartView = document.querySelector(".cart-drawer_hide"); //Verificar cuales productos estan ya en el carrito y actualizar cantidad total
+          _context11.next = 5;
+          return fetch('/cart.js').then(function (response) {
+            return response.json();
+          }).then(function (cart) {
+            eliminarElementoExisteneteEnCarrito(cart);
+            actualizarCantidadTotal(cart);
+          })["catch"](function (error) {
+            console.error('Error al obtener el carrito:', error);
+          });
+        case 5:
+          //Agregar funcionalidad el boton de agregar producto desde upsell
+          btnAddUpsell = document.querySelectorAll(".add-cart-from-upsell");
+          btnAddUpsell.forEach(function (btn) {
+            btn.addEventListener('click', /*#__PURE__*/function () {
+              var _ref6 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee10(e) {
+                var variantId, cart, parent;
+                return _regeneratorRuntime().wrap(function _callee10$(_context10) {
+                  while (1) switch (_context10.prev = _context10.next) {
+                    case 0:
+                      variantId = btn.getAttribute('data-id');
+                      _context10.next = 3;
+                      return addElementCart(variantId);
+                    case 3:
+                      _context10.next = 5;
+                      return obtenerDatosCarrito();
+                    case 5:
+                      cart = _context10.sent;
+                      _context10.next = 8;
+                      return updateCartDrawer(cart);
+                    case 8:
+                      _context10.next = 10;
+                      return actualizarCantidadTotal(cart);
+                    case 10:
+                      parent = btn.parentElement.parentElement;
+                      if (parent) {
+                        parent.remove();
+                      }
+                    case 12:
+                    case "end":
+                      return _context10.stop();
+                  }
+                }, _callee10);
+              }));
+              return function (_x11) {
+                return _ref6.apply(this, arguments);
+              };
+            }());
+          });
+          sideCartView.classList.add('cart-drawer');
+          contentCart.classList.add('main-container-cart');
+          allBody.style.overflow = 'hidden';
+          e.stopPropagation();
+        case 11:
+        case "end":
+          return _context11.stop();
+      }
+    }, _callee11);
+  }));
+  return _openCart.apply(this, arguments);
+}
+function eliminarElementoExisteneteEnCarrito(cart) {
+  var items = cart.items;
+  var ids = [];
+  items.forEach(function (item) {
+    ids.push(item.variant_id);
+  });
+  var elementos = document.querySelectorAll(".content-upsell-carrito");
+  elementos.forEach(function (elemento) {
+    var idElemento = Number(elemento.getAttribute('data-id'));
+    var existeElemento = ids.some(function (id) {
+      return id === idElemento;
+    });
+    if (existeElemento) {
+      elemento.remove();
+    }
+  });
+}
+function obtenerDatosCarrito() {
+  return _obtenerDatosCarrito.apply(this, arguments);
+}
+function _obtenerDatosCarrito() {
+  _obtenerDatosCarrito = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee12() {
+    return _regeneratorRuntime().wrap(function _callee12$(_context12) {
+      while (1) switch (_context12.prev = _context12.next) {
+        case 0:
+          _context12.next = 2;
+          return fetch('/cart.js').then(function (response) {
+            return response.json();
+          }).then(function (cart) {
+            return cart;
+          })["catch"](function (error) {
+            console.error('Error al obtener el carrito:', error);
+          });
+        case 2:
+          return _context12.abrupt("return", _context12.sent);
+        case 3:
+        case "end":
+          return _context12.stop();
+      }
+    }, _callee12);
+  }));
+  return _obtenerDatosCarrito.apply(this, arguments);
+}
+function actualizarCantidadTotal(_x9) {
+  return _actualizarCantidadTotal.apply(this, arguments);
+}
+function _actualizarCantidadTotal() {
+  _actualizarCantidadTotal = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee13(cart) {
+    var total, cartCount;
+    return _regeneratorRuntime().wrap(function _callee13$(_context13) {
+      while (1) switch (_context13.prev = _context13.next) {
+        case 0:
+          total = cart.item_count;
+          cartCount = document.querySelector(".cart-count");
+          cartCount.textContent = "Your cart (".concat(total, ")");
+        case 3:
+        case "end":
+          return _context13.stop();
+      }
+    }, _callee13);
+  }));
+  return _actualizarCantidadTotal.apply(this, arguments);
+}
+function quitarCTACheckout(_x10) {
+  return _quitarCTACheckout.apply(this, arguments);
+} //Hago una sola llamada y desde ahi hago las llamadas a las funciones que se ejecutan
+function _quitarCTACheckout() {
+  _quitarCTACheckout = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee14(cart) {
+    var contentCheckout;
+    return _regeneratorRuntime().wrap(function _callee14$(_context14) {
+      while (1) switch (_context14.prev = _context14.next) {
+        case 0:
+          console.log("enseguida se muestra el carrito");
+          console.log(cart);
+          contentCheckout = document.querySelector('.checkout');
+          while (contentCheckout.firstChild) {
+            contentCheckout.removeChild(contentCheckout.firstChild);
+          }
+        case 4:
+        case "end":
+          return _context14.stop();
+      }
+    }, _callee14);
+  }));
+  return _quitarCTACheckout.apply(this, arguments);
 }
 
 /***/ }),

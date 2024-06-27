@@ -44,7 +44,7 @@
         margin: 0;
       }
     };
-    main{
+    .main-sideCart{
       width: auto;
       height: auto;
       overflow: auto;
@@ -72,6 +72,20 @@
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+            .quantity-item-cart{
+              .menos{
+                width: 22px;
+                height: 22px;
+              }
+              input{
+                width: 60px;
+                text-align: center;
+              }
+              .mas{
+                width: 22px;
+                height: 22px;
+              }
+            }
             button{
               height: 30px;
               width: 30px;
@@ -85,30 +99,67 @@
         }
       }
     };
-    footer{
+    .main-content-checkout{
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
       padding: 10px;
       form{
         width: 100%;
-        div{
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          align-items: center;
-          p{
-            margin: 0;
+        .checkout{
+          div{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            p{
+              margin: 0;
+            }
+          };
+          button{
+            width: 100%;
+            height: 40px;
+            color: white;
+            background-color: black;
+            cursor: pointer;
           }
-        };
-        button{
-          width: 100%;
-          height: 40px;
-          color: white;
-          background-color: black;
-          cursor: pointer;
         }
       }        
+    }
+    footer{
+      position: absolute;
+      bottom: 0px;
+      left: 0;
+      width: 100%;
+      border-top: 1px solid black;
+      height: 130px;
+      .scroll-footer{
+        display: flex;
+        flex-direction: row; 
+        overflow: auto;
+        scrollbar-width: none; 
+        .content-upsell-carrito{
+          display: flex;
+          flex-direction: row;
+          width: 230px;
+          height: 130px;
+          img{
+            width: 100px;
+            height: 100px;
+          }
+          .text-upsell-carrito{
+            width: 160px;
+            h3{
+              font-size: 14px;
+              margin: 0;
+            }
+            p{
+              font-size: 12px;
+              margin: 0;
+            }
+          } 
+        }
+      }
     }
   }
 }

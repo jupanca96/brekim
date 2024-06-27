@@ -11,14 +11,25 @@
     <div class="content-card_cart"></div>
   </main>
 
-  <footer>
+  <main class="main-content-checkout">
     {% form 'cart', cart %}
-      <div>
-        <p>Subtotal</p>
-        <p class="text_subtotal"></p>
-      </div>
-      <button type="submit" name="checkout">Checkout</button>
+      <div class="checkout"></div>
     {% endform %}
+  </main>
+
+  <footer>
+    <div class="scroll-footer">
+      {% for product in collections['all-products'].products %}
+        <div class="content-upsell-carrito" data-id="{{ product.first_available_variant.id }}">
+          <img src="{{ product.featured_image | img_url: '100x100' }}" alt="">
+          <div class="text-upsell-carrito">
+            <h3>{{ product.title }}</h3>
+            <p>{{ product.price }}</p>
+            <button type="button" class="add-cart-from-upsell" data-id="{{ product.first_available_variant.id }}">Add Product</button>
+          </div>
+        </div>
+      {% endfor %}
+    </div>    
   </footer>
 </div>
 </div>
