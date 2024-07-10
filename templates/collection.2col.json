@@ -1,7 +1,7 @@
 {
     "sections": {
       "product-grid": {
-        "type": "main-collection-test",
+        "type": "main-collection-test"
       }
     },
     "order": [
