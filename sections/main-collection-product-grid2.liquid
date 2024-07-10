@@ -113,7 +113,7 @@
                   <button class="buttonCart" type="button">Add to cart</button>
                   <div class="swatches-size">
                     {% for variant in product.variants %}
-                      <div class="swatch-size" data-variant2-id="{{ variant.id }}" data-variant2-color="{{ variant.option1 }}" data-variant2-size="{{ variant.option2 }}">
+                      <div class="swatch-size" data-variant2-id="{{ variant.id }}" data-varaint2-inventory="{{ variant.inventory_quantity }}" data-variant2-color="{{ variant.option1 }}" data-variant2-size="{{ variant.option2 }}">
                         <button type="button" class="item_size-variant button-add-cart" data-variant2-id="{{ variant.id }}" {% if variant.available == false %}style="opacity: 0.5; cursor: not-allowed;" disabled{% endif %}> {{ variant.option2 }}</button>
                       </div>                  
                     {% endfor %}
@@ -124,7 +124,7 @@
             {% form 'product', product %}
               <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" class="variant-id">
               <div class="contenedor_add-cart">
-                <button class="buttonCart button-add-cart" type="button" data-variant2-id="{{ product.selected_or_first_available_variant.id }}">Add to cart</button>
+                <button class="buttonCart button-add-cart" type="button" data-variant2-id="{{ product.selected_or_first_available_variant.id }}" data-varaint2-inventory="{{ product.first_available_variant.inventory_quantity }}">Add to cart</button>
               </div>
             {% endform %}
             {% endif %}

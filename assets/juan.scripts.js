@@ -51,24 +51,25 @@ var apiCarrito = function apiCarrito() {
   btnAddCart.forEach(function (btn) {
     btn.addEventListener('click', /*#__PURE__*/function () {
       var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(e) {
-        var variantId, cart;
+        var variantId, variantInventory, cart;
         return _regeneratorRuntime().wrap(function _callee2$(_context2) {
           while (1) switch (_context2.prev = _context2.next) {
             case 0:
               variantId = btn.getAttribute('data-variant2-id');
-              _context2.next = 3;
+              variantInventory = btn.getAttribute('data-variant2-inventory');
+              _context2.next = 4;
               return addElementCart(variantId);
-            case 3:
-              _context2.next = 5;
+            case 4:
+              _context2.next = 6;
               return obtenerDatosCarrito();
-            case 5:
+            case 6:
               cart = _context2.sent;
-              _context2.next = 8;
+              _context2.next = 9;
               return updateCartDrawer(cart);
-            case 8:
-              _context2.next = 10;
+            case 9:
+              _context2.next = 11;
               return openCart(e);
-            case 10:
+            case 11:
             case "end":
               return _context2.stop();
           }
@@ -84,18 +85,7 @@ var apiCarrito = function apiCarrito() {
 };
 function addElementCart(_x3) {
   return _addElementCart.apply(this, arguments);
-} // async function (){
-//     console.log('Agregando o eliminando')
-//     await fetch('/cart.js')
-//     .then(response => response.json())
-//     .then(cart => {
-//         console.log(cart);
-//         obtenerCantidadDeProductos(cart);
-//     })
-//     .catch(error => {
-//         console.error('Error al obtener el carrito:', error);
-//     });
-// }
+}
 function _addElementCart() {
   _addElementCart = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(idAgregar) {
     var formData;
@@ -135,6 +125,8 @@ function _updateCartDrawer() {
     return _regeneratorRuntime().wrap(function _callee7$(_context7) {
       while (1) switch (_context7.prev = _context7.next) {
         case 0:
+          console.log(cart);
+
           //Actualizar cantidad total carrito
           quantityInCart = cart.item_count;
           priceInCart = cart.total_price; //Eliminar texto empty
@@ -259,7 +251,7 @@ function _updateCartDrawer() {
 
           //Agregar texto empty si no hay productos
           if (!(quantityInCart === 0)) {
-            _context7.next = 12;
+            _context7.next = 13;
             break;
           }
           textEmptyCart = document.createElement('p');
@@ -269,7 +261,7 @@ function _updateCartDrawer() {
 
           //actualizarPrecioTotalCarrito(cart);
           return _context7.abrupt("return");
-        case 12:
+        case 13:
         case "end":
           return _context7.stop();
       }
@@ -305,20 +297,24 @@ function actualizarPrecioTotalCarrito(cart) {
   var priceInCart = cart.total_price;
   cartPrice.textContent = "$".concat(priceInCart);
 }
-function actualizarCantidad(_x5, _x6) {
+function actualizarCantidad(_x5, _x6, _x7) {
   return _actualizarCantidad.apply(this, arguments);
 }
 function _actualizarCantidad() {
-  _actualizarCantidad = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee8(idActualizar, qty) {
+  _actualizarCantidad = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee8(idActualizar, qty, currentQty) {
     var data, cart;
     return _regeneratorRuntime().wrap(function _callee8$(_context8) {
       while (1) switch (_context8.prev = _context8.next) {
         case 0:
+          if (!(qty < currentQty)) {
+            _context8.next = 12;
+            break;
+          }
           data = {
             "id": idActualizar,
             "quantity": qty
           };
-          _context8.next = 3;
+          _context8.next = 4;
           return fetch('/cart/change.js', {
             method: 'POST',
             headers: {
@@ -330,16 +326,20 @@ function _actualizarCantidad() {
           })["catch"](function (error) {
             console.error(error);
           });
-        case 3:
-          _context8.next = 5;
+        case 4:
+          _context8.next = 6;
           return obtenerDatosCarrito();
-        case 5:
+        case 6:
           cart = _context8.sent;
-          _context8.next = 8;
+          _context8.next = 9;
           return actualizarCantidadTotal(cart);
-        case 8:
-          actualizarPrecioTotalCarrito(cart);
         case 9:
+          actualizarPrecioTotalCarrito(cart);
+          _context8.next = 13;
+          break;
+        case 12:
+          console.log('No hoy más stock');
+        case 13:
         case "end":
           return _context8.stop();
       }
@@ -347,7 +347,7 @@ function _actualizarCantidad() {
   }));
   return _actualizarCantidad.apply(this, arguments);
 }
-function eliminarProducto(_x7) {
+function eliminarProducto(_x8) {
   return _eliminarProducto.apply(this, arguments);
 }
 function _eliminarProducto() {
@@ -389,7 +389,7 @@ function _eliminarProducto() {
             break;
           }
           _context9.next = 14;
-          return quitarCTACheckout(cart);
+          return quitarCTACheckout();
         case 14:
           ;
         case 15:
@@ -400,7 +400,7 @@ function _eliminarProducto() {
   }));
   return _eliminarProducto.apply(this, arguments);
 }
-function openCart(_x8) {
+function openCart(_x9) {
   return _openCart.apply(this, arguments);
 }
 function _openCart() {
@@ -515,19 +515,33 @@ function _obtenerDatosCarrito() {
   }));
   return _obtenerDatosCarrito.apply(this, arguments);
 }
-function actualizarCantidadTotal(_x9) {
+function actualizarCantidadTotal(_x10) {
   return _actualizarCantidadTotal.apply(this, arguments);
 }
 function _actualizarCantidadTotal() {
   _actualizarCantidadTotal = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee13(cart) {
-    var total, cartCount;
+    var total, cartCount, countCart, imageCart, createDiv;
     return _regeneratorRuntime().wrap(function _callee13$(_context13) {
       while (1) switch (_context13.prev = _context13.next) {
         case 0:
           total = cart.item_count;
           cartCount = document.querySelector(".cart-count");
+          countCart = document.querySelector('.count_cart');
           cartCount.textContent = "Your cart (".concat(total, ")");
-        case 3:
+          if (cart.item_count > 0) {
+            if (countCart) {
+              countCart.textContent = "".concat(total);
+            } else {
+              imageCart = document.querySelector('.count_img_cart');
+              createDiv = document.createElement('div');
+              createDiv.classList.add('count_cart');
+              createDiv.textContent = "".concat(total);
+              imageCart.appendChild(createDiv);
+            }
+          } else {
+            countCart.remove();
+          }
+        case 5:
         case "end":
           return _context13.stop();
       }
@@ -535,22 +549,38 @@ function _actualizarCantidadTotal() {
   }));
   return _actualizarCantidadTotal.apply(this, arguments);
 }
-function quitarCTACheckout(_x10) {
+function quitarCTACheckout() {
   return _quitarCTACheckout.apply(this, arguments);
-} //Hago una sola llamada y desde ahi hago las llamadas a las funciones que se ejecutan
+} //Agregar al icon carrito la cantidad
+//Tomar en cuenta inventario del producto para no poder agregar más si se llega al limite
+//Crear templates de paginas nuevos y que el sitio deje de depender de dawn
+//Template producto
+//Carrousel de productos relacionados
+//Predictive search --> sugerencias mientras escribes --> esta es una api
+//Scrol infinito flickity
+//Subscripcion a la newsletter con shopify, shopify tiene algo que si lo pasas al formulario lo reconoce como suscriber
+//node.js como tecnología nueva a aprender
+//Api admin shopify se necesita node.js
+//Aprender a hacer una api
+//Servicio que muestra cuantas personas estan en vivo comprando en la tienda
+//Se han creado x o y ordenes 
+//Shopify developper
+//Hablar sobre experiencia con shopify del lado dev
+//Quire todo lo que sea pm
+//Bien soft skills
+//Agregar hard skills, nombrar tecnologias para rol que estoy buscando CSS, JZ, HTML, SHOPIFY (LIQUID, API, CUSTOMIZER)
+//No poner certificaciones, en lugar 
 function _quitarCTACheckout() {
-  _quitarCTACheckout = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee14(cart) {
+  _quitarCTACheckout = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee14() {
     var contentCheckout;
     return _regeneratorRuntime().wrap(function _callee14$(_context14) {
       while (1) switch (_context14.prev = _context14.next) {
         case 0:
-          console.log("enseguida se muestra el carrito");
-          console.log(cart);
           contentCheckout = document.querySelector('.checkout');
           while (contentCheckout.firstChild) {
             contentCheckout.removeChild(contentCheckout.firstChild);
           }
-        case 4:
+        case 2:
         case "end":
           return _context14.stop();
       }

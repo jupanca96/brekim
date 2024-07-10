@@ -1,0 +1,49 @@
+<div class="card_section">
+  {% if collection.all_products_count > 0 %}
+    {% paginate collection.products by section.settings.products_per_page %}
+
+      <div class="grilla_cards">
+        {% for product in collection.products %}       
+          <div class="product_card">
+            <a href="{{ product.url }}">
+              <div class="product-image">
+                <img class="show-image-card main-image zoom-image" src="{{ product.featured_image | product_img_url: 'medium' }}" alt="">         
+              </div>  
+            </a>              
+    
+            <h2>{{ product.title }}</h2>
+    
+            <p>{{ product.price | money_with_currency }}</p>                 
+
+           </div>
+
+        {% endfor %}
+      </div>
+
+      <div class="paginate_collection-2">
+        {{ paginate | default_pagination }}
+      </div>      
+    {% endpaginate %}
+  {% else %}
+    <p>No hay productos en esta colección</p>
+  {% endif %}
+  
+</div>
+
+{% schema %}
+{
+  "name": "Grilla de productos",
+  "settings": [
+      {
+        "type": "range",
+        "id": "products_per_page",
+        "min": 3,
+        "max": 16,
+        "step": 1,
+        "unit": "qn",
+        "label": "Productos por página",
+        "default": 3
+      }
+    ]
+}
+{% endschema %}

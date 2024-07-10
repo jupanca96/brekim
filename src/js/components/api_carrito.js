@@ -16,6 +16,7 @@ export const apiCarrito = () => {
     btnAddCart.forEach((btn) => {
         btn.addEventListener('click', async (e) => {
             const variantId = btn.getAttribute('data-variant2-id');
+            const variantInventory = btn.getAttribute('data-variant2-inventory');
             
             await addElementCart(variantId)
             const cart = await obtenerDatosCarrito();
@@ -50,28 +51,15 @@ async function addElementCart(idAgregar){
       });
 }
 
-
-// async function (){
-//     console.log('Agregando o eliminando')
-//     await fetch('/cart.js')
-//     .then(response => response.json())
-//     .then(cart => {
-//         console.log(cart);
-//         obtenerCantidadDeProductos(cart);
-//     })
-//     .catch(error => {
-//         console.error('Error al obtener el carrito:', error);
-//     });
-// }
-
 async function updateCartDrawer(cart) {
+    console.log(cart)
 
     //Actualizar cantidad total carrito
     const quantityInCart = cart.item_count;
     const priceInCart = cart.total_price;
 
     //Eliminar texto empty
-    const mainSideCart = document.querySelector('.main-sideCart');
+    const mainSideCart   = document.querySelector('.main-sideCart');
     while(mainSideCart.firstChild){
         mainSideCart.removeChild(mainSideCart.firstChild)
     }
@@ -230,28 +218,34 @@ function actualizarPrecioTotalCarrito(cart){
     cartPrice.textContent = `$${priceInCart}`;
 }
 
-async function actualizarCantidad(idActualizar, qty){
-    let data = {
-        "id": idActualizar,
-        "quantity": qty
-       };
+async function actualizarCantidad(idActualizar, qty, currentQty){
 
-       await fetch('/cart/change.js', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
+  if(qty < currentQty){
+    let data = {
+      "id": idActualizar,
+      "quantity": qty
+     };
+
+     await fetch('/cart/change.js', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => {
+      return response.json();
       })
-      .then(response => {
-        return response.json();
-        })
-      .catch((error) => {
-        console.error(error);
-      });
-      const cart = await obtenerDatosCarrito();
-      await actualizarCantidadTotal(cart);
-      actualizarPrecioTotalCarrito(cart);
+    .catch((error) => {
+      console.error(error);
+    });
+    const cart = await obtenerDatosCarrito();
+    await actualizarCantidadTotal(cart);
+    actualizarPrecioTotalCarrito(cart);
+  }else{
+    console.log('No hoy más stock')
+  }
+    
 }
 
 async function eliminarProducto(idModificar){    
@@ -279,7 +273,7 @@ async function eliminarProducto(idModificar){
     await actualizarCantidadTotal(cart);
     actualizarPrecioTotalCarrito(cart);
     if(cart.item_count === 0){
-        await quitarCTACheckout(cart);
+        await quitarCTACheckout();
     };
 }
 
@@ -363,16 +357,57 @@ async function actualizarCantidadTotal(cart){
 
     const total = cart.item_count;
     const cartCount = document.querySelector(".cart-count");
+    const countCart = document.querySelector('.count_cart');
 
     cartCount.textContent = `Your cart (${total})`;
+
+    if(cart.item_count > 0){
+      if(countCart){
+        countCart.textContent = `${total}`;
+      }else{
+        const imageCart = document.querySelector('.count_img_cart');
+        const createDiv = document.createElement('div');
+  
+        createDiv.classList.add('count_cart')
+        createDiv.textContent = `${total}`;
+  
+        imageCart.appendChild(createDiv);
+      } 
+    } else {
+      countCart.remove();
+    }
+    
+
+    
 }
-async function quitarCTACheckout(cart) {
-    console.log("enseguida se muestra el carrito");
-    console.log(cart);
+async function quitarCTACheckout() {
     const contentCheckout = document.querySelector('.checkout');
     while(contentCheckout.firstChild){
         contentCheckout.removeChild(contentCheckout.firstChild)
     }
 }
 
-//Hago una sola llamada y desde ahi hago las llamadas a las funciones que se ejecutan
+//Agregar al icon carrito la cantidad
+//Tomar en cuenta inventario del producto para no poder agregar más si se llega al limite
+
+//Crear templates de paginas nuevos y que el sitio deje de depender de dawn
+//Template producto
+//Carrousel de productos relacionados
+//Predictive search --> sugerencias mientras escribes --> esta es una api
+//Scrol infinito flickity
+//Subscripcion a la newsletter con shopify, shopify tiene algo que si lo pasas al formulario lo reconoce como suscriber
+
+//node.js como tecnología nueva a aprender
+//Api admin shopify se necesita node.js
+//Aprender a hacer una api
+//Servicio que muestra cuantas personas estan en vivo comprando en la tienda
+//Se han creado x o y ordenes 
+
+
+//Shopify developper
+//Hablar sobre experiencia con shopify del lado dev
+//Quire todo lo que sea pm
+//Bien soft skills
+//Agregar hard skills, nombrar tecnologias para rol que estoy buscando CSS, JZ, HTML, SHOPIFY (LIQUID, API, CUSTOMIZER)
+
+//No poner certificaciones, en lugar 

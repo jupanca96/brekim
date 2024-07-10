@@ -317,7 +317,50 @@
         {%- endcase -%}
       {%- endfor -%}
 
-      <img class="img_cart" src="https://cdn.shopify.com/s/files/1/0866/2479/6980/files/pngwing.com.png?v=1717517064" alt="">
+      <div class="count_img_cart">
+        <img class="img_cart" src="https://cdn.shopify.com/s/files/1/0866/2479/6980/files/pngwing.com.png?v=1717517064" alt="Imagen de carrito">
+        {% if cart.item_count != 0 %}
+          <div class="count_cart">{{ cart.item_count }}</div>
+        {% endif %}        
+      </div>
+
+      <style>
+        .count_img_cart{
+          position: relative;
+          height: 20px;
+          width: 20px;
+        }
+        .img_cart{
+          position: absolute;
+        }
+        .count_cart{
+          position: absolute;
+          height: 20px;
+          width: 20px;
+          border: 2px solid black;
+          border-radius: 50%;
+          left: 15px;
+          top: 15px;
+          text-align: center;
+          font-size: 12px;
+          background-color: black;
+          color: aliceblue;
+        }
+      </style>
+
+      <script>
+        
+        const variantId = 47984394273076;
+
+        function verId(id) {
+        }
+
+        verId(variantId);
+        
+        
+        
+
+      </script>
       
 
       {% comment %} <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
