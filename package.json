@@ -69,6 +69,7 @@
         ]
     },
     "dependencies": {
-        "ajaxinate": "^3.0.1"
+        "ajaxinate": "^3.0.1",
+        "infinite-scroll": "^4.0.1"
     }
 }

@@ -732,6 +732,20 @@ var productCard = function productCard() {
 
 /***/ }),
 
+/***/ "./src/js/components/product.js":
+/*!**************************************!*\
+  !*** ./src/js/components/product.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   product: () => (/* binding */ product)
+/* harmony export */ });
+var product = function product() {};
+
+/***/ }),
+
 /***/ "./src/js/components/sidecart.js":
 /*!***************************************!*\
   !*** ./src/js/components/sidecart.js ***!
@@ -853,8 +867,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_product_cards__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/product-cards */ "./src/js/components/product-cards.js");
 /* harmony import */ var _components_sidecart__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/sidecart */ "./src/js/components/sidecart.js");
 /* harmony import */ var _components_api_carrito__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/api_carrito */ "./src/js/components/api_carrito.js");
+/* harmony import */ var _components_product__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/product */ "./src/js/components/product.js");
 //import { swiperValueprops } from "./swiper";
 //import { Ajaxinate } from "ajaxinate";
+
 
 
 
