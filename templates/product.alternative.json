@@ -2,7 +2,7 @@
   "sections": {
     "main": {
       "type": "main-product2"
-      },
+      }
   },
   "order": [
     "main"
