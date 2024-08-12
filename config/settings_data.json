@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "current": {
     "test_data": "Data test",
@@ -131,11 +140,24 @@
         "settings": {
           "color_scheme": "scheme-1"
         }
+      },
+      "cart-juan": {
+        "type": "cart-juan",
+        "settings": {
+        }
       }
     },
     "content_for_index": [
 
     ],
+    "blocks": {
+      "7107336029660443536": {
+        "type": "shopify:\/\/apps\/progressify-multi-bar-upsells\/blocks\/embed\/82c18c6a-85d2-42a6-aa30-f91433549659",
+        "disabled": false,
+        "settings": {
+        }
+      }
+    },
     "color_schemes": {
       "scheme-1": {
         "settings": {

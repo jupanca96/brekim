@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "main": {
@@ -32,6 +41,11 @@
           "settings": {
           }
         },
+        "progressify_multi_bar_upsells_block_BwQJjj": {
+          "type": "shopify:\/\/apps\/progressify-multi-bar-upsells\/blocks\/block\/82c18c6a-85d2-42a6-aa30-f91433549659",
+          "settings": {
+          }
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -57,6 +71,7 @@
         "price",
         "variant_picker",
         "quantity_selector",
+        "progressify_multi_bar_upsells_block_BwQJjj",
         "buy_buttons",
         "description",
         "share"
