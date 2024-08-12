@@ -247,6 +247,7 @@ function _updateCartDrawer() {
             //Creamos el footer
 
             crearFooter(priceInCart);
+            modificarProgressBar();
           });
 
           //Agregar texto empty si no hay productos
@@ -551,6 +552,27 @@ function _actualizarCantidadTotal() {
 }
 function quitarCTACheckout() {
   return _quitarCTACheckout.apply(this, arguments);
+}
+function _quitarCTACheckout() {
+  _quitarCTACheckout = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee14() {
+    var contentCheckout;
+    return _regeneratorRuntime().wrap(function _callee14$(_context14) {
+      while (1) switch (_context14.prev = _context14.next) {
+        case 0:
+          contentCheckout = document.querySelector('.checkout');
+          while (contentCheckout.firstChild) {
+            contentCheckout.removeChild(contentCheckout.firstChild);
+          }
+        case 2:
+        case "end":
+          return _context14.stop();
+      }
+    }, _callee14);
+  }));
+  return _quitarCTACheckout.apply(this, arguments);
+}
+function modificarProgressBar() {
+  return _modificarProgressBar.apply(this, arguments);
 } //Agregar al icon carrito la cantidad
 //Tomar en cuenta inventario del producto para no poder agregar más si se llega al limite
 //Crear templates de paginas nuevos y que el sitio deje de depender de dawn
@@ -570,23 +592,41 @@ function quitarCTACheckout() {
 //Bien soft skills
 //Agregar hard skills, nombrar tecnologias para rol que estoy buscando CSS, JZ, HTML, SHOPIFY (LIQUID, API, CUSTOMIZER)
 //No poner certificaciones, en lugar 
-function _quitarCTACheckout() {
-  _quitarCTACheckout = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee14() {
-    var contentCheckout;
-    return _regeneratorRuntime().wrap(function _callee14$(_context14) {
-      while (1) switch (_context14.prev = _context14.next) {
+function _modificarProgressBar() {
+  _modificarProgressBar = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee15() {
+    var amountDiscount, cart, totalPriceInCart, percentageBar, restante, progressBarFill, textFreeShipping;
+    return _regeneratorRuntime().wrap(function _callee15$(_context15) {
+      while (1) switch (_context15.prev = _context15.next) {
         case 0:
-          contentCheckout = document.querySelector('.checkout');
-          while (contentCheckout.firstChild) {
-            contentCheckout.removeChild(contentCheckout.firstChild);
+          amountDiscount = 300000;
+          _context15.next = 3;
+          return obtenerDatosCarrito();
+        case 3:
+          cart = _context15.sent;
+          totalPriceInCart = cart.total_price;
+          percentageBar = totalPriceInCart / amountDiscount * 100;
+          restante = amountDiscount - totalPriceInCart;
+          console.log(amountDiscount);
+          console.log(cart);
+          console.log(totalPriceInCart);
+          console.log(percentageBar);
+          console.log(restante);
+          progressBarFill = document.getElementById('progress-bar-fill');
+          textFreeShipping = document.getElementById('text-freeShipping');
+          if (percentageBar >= 100) {
+            textFreeShipping.textContent = 'El elemento ya tiene free shipping';
+            progressBarFill.style.width = "100%";
+          } else {
+            textFreeShipping.textContent = "Te faltan ".concat(restante, " para obtener env\xEDo gratuito!");
+            progressBarFill.style.width = "".concat(percentageBar, "%");
           }
-        case 2:
+        case 15:
         case "end":
-          return _context14.stop();
+          return _context15.stop();
       }
-    }, _callee14);
+    }, _callee15);
   }));
-  return _quitarCTACheckout.apply(this, arguments);
+  return _modificarProgressBar.apply(this, arguments);
 }
 
 /***/ }),
@@ -742,7 +782,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   product: () => (/* binding */ product)
 /* harmony export */ });
-var product = function product() {};
+var product = function product() {
+  //Agregar el click a todos los colores
+  var swatchColor = document.querySelectorAll('.swatch');
+  swatchColor.forEach(function (element) {
+    var variantId = element.getAttribute('data-variant-color');
+    element.addEventListener('click', function () {
+      mostrarTallasDelColor(variantId);
+    });
+  });
+};
+function mostrarTallasDelColor(variantId) {
+  var colorSeleceted = document.querySelectorAll('.item_size-variant_selected');
+  colorSeleceted.forEach(function (element) {
+    element.classList.add('item_size-variant');
+    element.classList.remove('item_size-variant_selected');
+  });
+  var variatnSize = document.querySelectorAll('.item_size-variant');
+  variatnSize.forEach(function (element) {
+    var colorVariantSize = element.getAttribute('data-variant2-color');
+    if (colorVariantSize === variantId) {
+      element.classList.add('item_size-variant_selected');
+      element.classList.remove('item_size-variant');
+    }
+  });
+}
 
 /***/ }),
 
@@ -878,6 +942,7 @@ __webpack_require__.r(__webpack_exports__);
 document.addEventListener("DOMContentLoaded", function () {
   (0,_components_sidecart__WEBPACK_IMPORTED_MODULE_1__.sideCart)();
   (0,_components_product_cards__WEBPACK_IMPORTED_MODULE_0__.productCard)();
+  (0,_components_product__WEBPACK_IMPORTED_MODULE_3__.product)();
 });
 (0,_components_api_carrito__WEBPACK_IMPORTED_MODULE_2__.apiCarrito)();
 })();

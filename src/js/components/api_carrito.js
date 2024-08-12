@@ -163,7 +163,8 @@ async function updateCartDrawer(cart) {
 
         //Creamos el footer
 
-        crearFooter(priceInCart)      
+        crearFooter(priceInCart)     
+        modificarProgressBar() 
     })
 
         //Agregar texto empty si no hay productos
@@ -384,6 +385,31 @@ async function quitarCTACheckout() {
     const contentCheckout = document.querySelector('.checkout');
     while(contentCheckout.firstChild){
         contentCheckout.removeChild(contentCheckout.firstChild)
+    }
+}
+
+async function modificarProgressBar(){
+    const amountDiscount = 300000;
+    const cart = await obtenerDatosCarrito();
+    const totalPriceInCart = cart.total_price;
+    const percentageBar = ((totalPriceInCart/amountDiscount)*100);
+    const restante = (amountDiscount - totalPriceInCart);
+
+    console.log(amountDiscount)
+    console.log(cart)
+    console.log(totalPriceInCart)
+    console.log(percentageBar)
+    console.log(restante)
+
+    const progressBarFill = document.getElementById('progress-bar-fill');
+    const textFreeShipping = document.getElementById('text-freeShipping');
+
+    if(percentageBar >= 100){        
+        textFreeShipping.textContent = 'El elemento ya tiene free shipping'
+        progressBarFill.style.width = `100%`
+    } else {
+        textFreeShipping.textContent = `Te faltan ${restante} para obtener envío gratuito!`;
+        progressBarFill.style.width = `${percentageBar}%`
     }
 }
 

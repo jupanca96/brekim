@@ -1,3 +1,95 @@
-<div>
-    <div>Esto es para ver si funciona</div>
+<div class="main-content-product">
+
+  <div class="content-main-img">
+    <!-- Imagen Principal -->
+    <div class="img-product">
+        <img id="main-image" src="{{ product.images.first | product_img_url: 'medium' }}" alt="Producto principal">
+    </div>
+
+    <!-- Carrusel de Miniaturas -->
+    <div class="carousel-thumbnails">
+        {% for image in product.images %}
+            <div class="thumbnail">
+                <img src="{{ image.src | product_img_url: 'thumb' }}" alt="Miniatura del producto" 
+                     onclick="document.getElementById('main-image').src='{{ image.src | product_img_url: 'medium' }}'">
+            </div>
+        {% endfor %}
+    </div>
+  </div>
+    
+    
+  <div class="info-product">
+        <p>{{ product.title  }}</p>
+        <p>${{ product.price  }}</p>
+
+        {% if product.variants.size > 1 %}
+            <div class="swatches">
+            {% assign shown_colors = "" %}
+            {% for variant in product.variants %}
+                {% assign color = variant.option1 %}                    
+                {% unless shown_colors contains color %}
+                <div class="swatch" data-variant-color="{{ variant.option1 }}" data-variant-id="{{ variant.id }}" data-variant-image="{{ variant.featured_image.src | product_img_url: 'medium' }}">
+                    <p class="item_color-variant" style="background-image: url('{{ variant.metafields.custom.textura | img_url: '200x200' }}');">{{ variant.title }}</p> 
+                </div>
+                {% assign shown_colors = shown_colors | append: color | append: "," %}
+                {% endunless %}                                                  
+            {% endfor %}
+            </div>  
+        {% endif %}       
+
+        
+        {% if product.variants.size > 1 %}
+            <div class="swatches-size">
+              {% for variant in product.variants %}
+                <div class="swatch-size" data-variant2-id="{{ variant.id }}" data-varaint2-inventory="{{ variant.inventory_quantity }}" data-variant2-color="{{ variant.option1 }}" data-variant2-size="{{ variant.option2 }}">
+                  <button type="button" class="item_size-variant" data-variant2-color="{{ variant.option1 }}" data-variant2-id="{{ variant.id }}"  {% if variant.available == false %}style="opacity: 0.5; cursor: not-allowed;" disabled{% endif %}> {{ variant.option2 }}</button>
+                </div>                  
+              {% endfor %}
+            </div>
+      {% endif %}
+
+        <div>Quantity</div>
+        <div>Add to cart</div>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <p>Description</p>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>All description of the product</p>
+                </div>
+            </div>            
+        </div>
+    </div>
 </div>
+
+<style>
+  .content-main-img {
+        display: flex;
+    }
+    .img-product {
+        flex: 2;
+        margin-right: 20px;
+    }
+    .carousel-thumbnails {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .thumbnail img {
+        cursor: pointer;
+        border: 1px solid #ddd;
+        padding: 5px;
+        width: 80px; /* Ajusta el tamaño según sea necesario */
+    }
+    .thumbnail img:hover {
+        border-color: #333;
+    }
+</style>
+
+
+<script>
+
+</script>

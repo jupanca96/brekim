@@ -8,8 +8,8 @@ import { product } from "./components/product";
 
 document.addEventListener("DOMContentLoaded", function() {
     sideCart();
-    productCard();    
+    productCard();  
+    product();  
 });
 
 apiCarrito();
-

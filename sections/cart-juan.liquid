@@ -11,11 +11,19 @@
     <div class="content-card_cart"></div>
   </main>
 
+  <div id="free-shipping-bar">
+    <p id="text-freeShipping"></p>
+    <div class="progress-bar">
+        <div id="progress-bar-fill" style="width: 0%;"></div>
+    </div>
+  </div>
+
   <main class="main-content-checkout">
     {% form 'cart', cart %}
       <div class="checkout"></div>
     {% endform %}
   </main>
+
 
   <footer>
     <div class="scroll-footer">

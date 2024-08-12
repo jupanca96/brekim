@@ -171,3 +171,23 @@
 .main-container-cart{
   display: block;
 }
+
+#free-shipping-bar {
+  background-color: #f9f9f9;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+}
+
+.progress-bar {
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 20px;
+  margin-top: 10px;
+}
+
+#progress-bar-fill {
+  background-color: #4caf50;
+  height: 100%;
+}
